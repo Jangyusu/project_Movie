@@ -1,0 +1,36 @@
+html,
+body {
+    margin: 0px;
+}
+span,
+em,
+strong,
+a {
+    display: inline-block;
+}
+ul,
+li {
+    list-style-type: none;
+}
+em {
+    font-style: normal;
+}
+a {
+    color: #000;
+    text-decoration: none;
+}
+img {
+    font-size: 0;
+    vertical-align: top;
+    display: inline-block;
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Nanum Gothic";
+    font-size: 16px;
+    line-height: 27px;
+    color: #000;
+    font-weight: normal;
+    box-sizing: border-box;
+}
