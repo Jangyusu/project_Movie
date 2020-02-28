@@ -1,1 +1,5 @@
 @import url(common.css);
+
+body {
+    background: url("../img/B_Site_The_Dark_Knite_01_Home.jpg") no-repeat center top / cover;
+}
