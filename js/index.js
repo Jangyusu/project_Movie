@@ -1,11 +1,12 @@
-var menuButton = document.getElementsByClassName("menu_button")[0],
-    menu = document.getElementsByClassName("menu")[0],
-    start = document.getElementsByClassName("start")[0],
-    header = document.getElementsByTagName("header")[0],
-    director = document.getElementsByClassName("director")[0],
-    scroll = document.getElementsByClassName("scroll")[0],
+var menuButton = document.querySelector(".menu_button"),
+    menu = document.querySelector(".menu"),
+    start = document.querySelector(".start"),
+    header = document.querySelector("header"),
+    director = document.querySelector(".director"),
+    scroll = document.querySelector(".scroll"),
     section = document.getElementsByTagName("section"),
-    footer = document.querySelector("footer");
+    footer = document.querySelector("footer"),
+    aside = document.querySelector("aside");
 
 menuButton.addEventListener("click", function() {
     event.preventDefault();
@@ -49,7 +50,26 @@ for (var i = 0; i < menu.children.length; i++) {
     });
 } // 메뉴 선택시 화면 전환
 
-section[1].addEventListener("click", function() {
-    section[1].children[0].classList.add("active");
-    section[1].children[1].classList.add("active");
-});
+for (var i = 0; i < aside.children.length; i++) {
+    aside.children[i].addEventListener("click", function() {
+        var orgTarget = this.getAttribute("href"),
+            tabTarget = orgTarget.replace("#", "");
+
+        for (var i = 0; i < aside.children.length; i++) {
+            aside.children[i].classList.remove("active");
+            section[1].querySelectorAll("article")[i].classList.remove("active");
+        }
+
+        this.classList.add("active");
+        section[1].querySelectorAll("article")[tabTarget].classList.add("active");
+        section[1].classList.remove("first", "second", "third");
+
+        if (tabTarget == 0) {
+            section[1].classList.add("first");
+        } else if (tabTarget == 1) {
+            section[1].classList.add("second");
+        } else {
+            section[1].classList.add("third");
+        }
+    });
+} // Synopsis 화면 전환
