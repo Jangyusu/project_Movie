@@ -1,5 +1,195 @@
 @import url(common.css);
 
-body {
-    background: url("../img/B_Site_The_Dark_Knite_01_Home.jpg") no-repeat center top / cover;
+
+/* header */
+
+header {
+    width: 8%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2% 0;
+    position: fixed;
+    justify-content: space-between;
+    z-index: 2;
+    opacity: 0;
+    animation: opacity 5s 10s forwards;
 }
+@keyframes opacity {
+    100% {
+        opacity: 1;
+    }
+}
+header > a:first-of-type {}
+header > a:last-of-type {
+    position: absolute;
+    left: 0;    
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    transition: .5s;
+    opacity: 1;
+    z-index: 2;
+}
+header > a:last-of-type.active {
+    transform: translateX(-80%) translateY(-50%);
+    opacity: .1;
+}
+header > a:last-of-type:hover {
+    opacity: .1;
+}
+header ul {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-100%) translateY(-50%);
+    transition: 1s;
+}
+header ul.active {
+    transform: translateX(0%) translateY(-50%);
+}
+header ul li {width: 100%;}
+header ul li:last-of-type {margin-bottom: 0;}
+header ul li a {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    line-height: 8rem;
+}
+
+
+/* section */
+
+section {
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding: 2vh 0;
+}
+section h1 {display: none;}
+
+section:nth-of-type(1) {   
+    background-image: url("../img/Home.jpg");
+    text-align: center;
+    text-transform: uppercase;
+    animation: opacity 10s forwards;
+    opacity: 0;
+}
+section:nth-of-type(1) .director {
+    letter-spacing: 0.6rem;
+    opacity: 0;
+    animation: opacity 3s 6s forwards;
+}
+section:nth-of-type(1) .director div {
+    position: relative;
+    overflow: hidden;
+    width: 40%;
+    margin: 0 auto;
+}
+section:nth-of-type(1) .director div:first-of-type {
+    padding: 2rem 0;
+}
+section:nth-of-type(1) .director div:first-of-type span {
+    font-size: 0.9375rem;
+    line-height: 4rem;
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    transform: translateX(-50%) translateY(100%);
+    animation: up 2s 7s forwards;
+}
+@keyframes up {
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+section:nth-of-type(1) .director div:first-of-type span:hover {
+    transform: translateX(-50%) translateY(100%);
+}
+section:nth-of-type(1) .director > span {
+    width: 48px;
+    height: 1px;
+    background: #fff;
+    display: block;
+    margin: 0 auto;
+}
+section:nth-of-type(1) .director div:last-of-type {
+    padding: 2rem 0;
+}
+section:nth-of-type(1) .director div:last-of-type span {
+    font-size: 1.125rem;
+    line-height: 4rem;
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    transform: translateX(-50%) translateY(-100%);
+    animation: down 3s 8s forwards;
+}
+@keyframes down {
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+section:nth-of-type(1) .director div:last-of-type span:hover {
+    transform: translateX(-50%) translateY(-100%);
+}
+section:nth-of-type(1) > span {
+    font-size: 5rem;
+    font-weight: 900;
+    letter-spacing: 5.5rem;
+    margin: 56vh 0 6vh;
+    animation: title 10s forwards;
+    opacity: 0;
+}
+@keyframes title {
+    100% {
+        letter-spacing: 2rem;
+        opacity: 1;
+    }
+}
+section:nth-of-type(1) .scroll {
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    animation: opacity 5s 10s forwards;
+}
+section:nth-of-type(1) .scroll span {
+    text-transform: none;
+    font-weight: 300;
+    letter-spacing: 0.3rem;
+    margin-bottom: 1vh;
+}
+section:nth-of-type(1) .scroll a {
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #fff;
+    border-radius: 100%;
+    transform: translateY(0);
+    animation: scroll 1.5s infinite;
+}
+
+@keyframes scroll {
+    50% {
+        transform: translateY(30%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+section:nth-of-type(2) {background-image: url("../img/Home.jpg");}
+
+section:nth-of-type(3) {background-image: url("../img/Home.jpg");}
+
+section:nth-of-type(4) {background-image: url("../img/Home.jpg");}
+
+section:nth-of-type(5) {background-image: url("../img/Home.jpg");}
+
+section:nth-of-type(6) {background-image: url("../img/Home.jpg");}
