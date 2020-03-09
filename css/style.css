@@ -35,7 +35,7 @@ header {
     padding: 2% 0;
     position: fixed;
     justify-content: space-between;
-    z-index: 2;
+    z-index: 9999;
     opacity: 0;
 }
 header.active {
@@ -106,22 +106,21 @@ section {
     background-position: center center;
     background-size: cover;
     opacity: 0;
-    z-index: -1;
     padding: 2vh 0;
     position: absolute;
 }
 section.click {
-    transition: 2.5s;
+    transition: opacity 3.5s, z-index 3.5s;
     opacity: 1;
-    z-index: 1;
+    z-index: 2;
 }
-section h1, section h2 {display: none;}
+section h1 {display: none;}
 
 section:nth-of-type(1) {   
     background-image: url("../img/Home.jpg");
     text-align: center;
     text-transform: uppercase;
-    opacity: 0;
+    z-index: 2;
 }
 section:nth-of-type(1).active {
     /* animation: opacity 10s forwards; */
@@ -178,14 +177,14 @@ section:nth-of-type(1) .director div:last-of-type span.active {
     /* animation: down 3s 7s forwards; */
     animation: down 1s 1s forwards;
 }
-section:nth-of-type(1) > span {
+section:nth-of-type(1) > p {
     font-size: 5rem;
     font-weight: 900;
     letter-spacing: 5rem;
     margin: 56vh 0 6vh;
     opacity: 0;
 }
-section:nth-of-type(1) > span.active {
+section:nth-of-type(1) > p.active {
     /* animation: title 10s 6s forwards; */
     animation: title 1s 1s forwards;
 }
@@ -219,15 +218,89 @@ section:nth-of-type(1) .scroll a.active {
     animation: scroll 1.5s infinite;
 }
 
-section:nth-of-type(2) {background-image: url("../img/Synopsis_01.jpg"); z-index: 0;}
+section:nth-of-type(2) {
+    background-image: url("../img/Synopsis_01.jpg");
+    text-align: center;
+    display: flex;
+    flex-direction: column-reverse;
+}
+section:nth-of-type(2) h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    border-bottom: 1px solid #fff;
+    margin: 0 auto;
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    opacity: 0;
+}
+section:nth-of-type(2) h2.active {
+    animation: opacity 1s 1s forwards;
+}
+section:nth-of-type(2) article {
+    text-align: start;
+    margin: 0 0 7% 12%;
+    opacity: 0;
+}
+section:nth-of-type(2) article.active {
+    animation: opacity 1s 1s forwards;
+}
+section:nth-of-type(2) article h3 {
+    display: none;
+}
+section:nth-of-type(2) article strong {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+section:nth-of-type(2) article .line {
+    margin: 1.5% 0;
+}
+section:nth-of-type(2) article .line img {
+    margin-right: 10px;
+}
+section:nth-of-type(2) article .line span{
+    width: 270px;
+    height: 2px;
+    background: #fff;
+}
+section:nth-of-type(2) article p{
+    width: 70%;
+    line-height: 2rem;
+}
 
-section:nth-of-type(3) {background-image: url("../img/Home.jpg");}
+section:nth-of-type(3) {background-image: url("../img/Casting_01.jpg");}
 
 section:nth-of-type(4) {background-image: url("../img/Home.jpg");}
 
 section:nth-of-type(5) {background-image: url("../img/Home.jpg");}
 
 section:nth-of-type(6) {background-image: url("../img/Home.jpg");}
+
+
+/* footer */
+
+footer {
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+    z-index: 9999;
+    opacity: 0;
+}
+footer.active {
+    /* animation: opacity 3s 6s forwards; */
+    animation: opacity 1s 1s forwards;
+}
+footer a {
+    opacity: .7;
+    margin-left: 30px;
+    transition: .5s;
+}
+footer a:first-of-type {
+    margin-left: 0;
+}
+footer a:hover {
+    opacity: 1;
+}
 
 
 /* keyframes */

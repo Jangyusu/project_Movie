@@ -4,7 +4,8 @@ var menuButton = document.getElementsByClassName("menu_button")[0],
     header = document.getElementsByTagName("header")[0],
     director = document.getElementsByClassName("director")[0],
     scroll = document.getElementsByClassName("scroll")[0],
-    section = document.getElementsByTagName("section");
+    section = document.getElementsByTagName("section"),
+    footer = document.querySelector("footer");
 
 menuButton.addEventListener("click", function() {
     event.preventDefault();
@@ -27,6 +28,7 @@ start.addEventListener("click", function() {
         scroll.children[1].classList.add("active");
         section[0].classList.add("active");
         section[0].children[2].classList.add("active");
+        footer.classList.add("active");
     }, 3000);
 }); // 시작버튼 생성
 
@@ -36,11 +38,18 @@ for (var i = 0; i < menu.children.length; i++) {
             tabTarget = orgTarget.replace("#", "");
 
         event.preventDefault();
+        menu.classList.remove("active");
+        menuButton.classList.remove("active");
 
         for (var i = 0; i < section.length; i++) {
             section[i].classList.remove("click");
+            section[i].classList.remove("active");
         }
-
         section[tabTarget].classList.add("click");
     });
-}
+} // 메뉴 선택시 화면 전환
+
+section[1].addEventListener("click", function() {
+    section[1].children[0].classList.add("active");
+    section[1].children[1].classList.add("active");
+});
