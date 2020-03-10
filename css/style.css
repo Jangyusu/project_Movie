@@ -222,16 +222,27 @@ section:nth-of-type(2) {
     text-align: center;
     display: flex;
     flex-direction: column-reverse;
-    transition: background-image 2s;
+    opacity: 0;
+    z-index: 1;
+    transition: background-image 2s, z-index 2s;
 }
 section:nth-of-type(2).first {
     background-image: url("../img/Synopsis_01.jpg");
+    opacity: 1;
+    z-index: 2;
+    animation: opacity 2s forwards;
 }
 section:nth-of-type(2).second {
     background-image: url("../img/Synopsis_02.jpg");
+    opacity: 1;
+    z-index: 2;
+    animation: opacity 2s forwards;
 }
 section:nth-of-type(2).third {
     background-image: url("../img/Synopsis_03.jpg");
+    opacity: 1;
+    z-index: 2;
+    animation: opacity 2s forwards;
 }
 section:nth-of-type(2) h2 {
     font-size: 1.875rem;
@@ -247,10 +258,10 @@ section:nth-of-type(2) h2 {
     animation: opacity 1s 1s forwards;
 } */
 section:nth-of-type(2) article {
-    opacity: 0;
     position: absolute;
     left: 0;
     bottom: 0;
+    opacity: 0;
     z-index: 1;
     transition: opacity 1s, z-index 1s;
 }
