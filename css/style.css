@@ -8,21 +8,20 @@
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-50%) scale(.9);
-    /* transition: transform 10s, opacity 3s, z-index 10s; */
-    transition: transform 1s, opacity 1s, z-index 1s;
     opacity: .1;
     z-index: 9999;
+    transition: 1s;
 }
 .start:hover{
+    cursor: pointer;
     opacity: 1;
     transform: translateX(-50%) translateY(-50%) scale(1);
 }
-.start.active{
+.start.active {
+    z-index: -1;
     opacity: 0;
-    transform: translateX(-50%) translateY(-40%);
-    z-index: -9999;
+    transform: translateX(-50%) translateY(-50%) scale(.7);
 }
-
 
 /* header */
 
@@ -35,42 +34,41 @@ header {
     padding: 2% 0;
     position: fixed;
     justify-content: space-between;
-    z-index: 9999;
     opacity: 0;
+    transition: 1s;
 }
 header.active {
-    /* animation: opacity 5s 10s forwards; */
-    animation: opacity 1s 1s forwards;
+    opacity: 1;
+    z-index: 9999;
 }
-header > a:last-of-type {
+header .menu_button {
     position: absolute;
     left: 0;    
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
-    transition: .5s;
-    opacity: .3;
+    transition: 1s;
     z-index: 9999;
-}
-header > a:last-of-type.active {
-    transform: translateX(-80%) translateY(-50%);
     opacity: .3;
 }
-header > a:last-of-type:hover {
+header .menu_button.active {
+    transform: translateX(-80%) translateY(-50%);
+}
+header .menu_button:hover {
     opacity: 1;
 }
-header ul {
+header .menu {
     width: 100%;
     position: absolute;
     top: 50%;
     transform: translateX(-105%) translateY(-50%);
     transition: 1s;
 }
-header ul.active {
-    transform: translateX(0%) translateY(-50%);
+header .menu.active {
+    transform: translateX(0) translateY(-50%);
 }
-header ul li {width: 100%;}
-header ul li:last-of-type {margin-bottom: 0;}
-header ul li a {
+header .menu li {width: 100%;}
+header .menu li:last-of-type {margin-bottom: 0;}
+header .menu li a {
     width: 100%;
     text-align: center;
     text-transform: uppercase;
@@ -79,19 +77,19 @@ header ul li a {
     opacity: .7;
     position: relative;
 }
-header ul li a::before {
+header .menu li a::before {
     content: url(../img/호버시.png);
     position: absolute;
     left: 0;
     top: 1rem;
     transform: translateY(-0.5rem);
-    opacity: 0;
     z-index: -1;
+    opacity: 0;
 }
-header ul li a:hover {
+header .menu li a:hover {
     opacity: 1;
 }
-header ul li a:hover::before {
+header .menu li a:hover::before {
     opacity: 1;
     transition: .5s;
 }
@@ -108,28 +106,41 @@ section {
     opacity: 0;
     padding: 2vh 0;
     position: absolute;
+    transition: 1s;
+}
+section.active {
+    opacity: 1;
+    z-index: 10;
 }
 section h1 {display: none;}
+section h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    border-bottom: 1px solid #fff;
+    margin: 0 auto;
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    opacity: 1;
+}
 section:nth-of-type(1) {   
     background-image: url("../img/Home.jpg");
     text-align: center;
     text-transform: uppercase;
-    z-index: 1;
-    transition: 2s;
+    transition: 1s;
+    opacity: 0;
 }
-section:nth-of-type(1).active,
-section:nth-of-type(1).click {
-    /* animation: opacity 10s forwards; */
+section:nth-of-type(n).active {
     opacity: 1;
-    z-index: 10;
 }
 section:nth-of-type(1) .director {
     letter-spacing: 0.6rem;
     opacity: 0;
+    transition: 1s;
 }
 section:nth-of-type(1) .director.active {
-    /* animation: opacity 3s 6s forwards; */
-    animation: opacity 1s 1s forwards;
+    opacity: 1;
+    z-index: 10;
 }
 section:nth-of-type(1) .director div {
     position: relative;
@@ -147,10 +158,10 @@ section:nth-of-type(1) .director div:first-of-type span {
     left: 50%;
     top: 0%;
     transform: translateX(-50%) translateY(100%);
+    transition: 1s;
 }
 section:nth-of-type(1) .director div:first-of-type span.active {
-    /* animation: up 2s 6s forwards; */
-    animation: up 1s 1s forwards;
+    transform: translateX(-50%) translateY(0);
 }
 section:nth-of-type(1) .director > span {
     width: 48px;
@@ -169,30 +180,32 @@ section:nth-of-type(1) .director div:last-of-type span {
     left: 50%;
     top: 0%;
     transform: translateX(-50%) translateY(-100%);
+    transition: 1s 1s;
 }
 section:nth-of-type(1) .director div:last-of-type span.active {
-    /* animation: down 3s 7s forwards; */
-    animation: down 1s 1s forwards;
+    transform: translateX(-50%) translateY(0);
 }
-section:nth-of-type(1) > p {
+section:nth-of-type(1) p {
     font-size: 5rem;
     font-weight: 900;
     letter-spacing: 5rem;
     margin: 56vh 0 6vh;
     opacity: 0;
+    transition: opacity 1s, letter-spacing 1s;
 }
-section:nth-of-type(1) > p.active {
-    /* animation: title 10s 6s forwards; */
-    animation: title 1s 1s forwards;
+section:nth-of-type(1) p.active {
+    opacity: 1;
+    letter-spacing: 2rem;
 }
 section:nth-of-type(1) .scroll {
     display: flex;
     flex-direction: column;
     opacity: 0;
+    transform: translateY(0);
+    transition: 1s;
 }
 section:nth-of-type(1) .scroll.active {
-    /* animation: opacity 5s 10s forwards; */
-    animation: opacity 1s 1s forwards;
+    opacity: 1;
 }
 section:nth-of-type(1) .scroll span {
     text-transform: none;
@@ -200,7 +213,7 @@ section:nth-of-type(1) .scroll span {
     letter-spacing: 0.3rem;
     margin-bottom: 1vh;
 }
-section:nth-of-type(1) .scroll a {
+section:nth-of-type(1) .scroll i {
     width: 30px;
     height: 30px;
     margin: 0 auto;
@@ -210,65 +223,22 @@ section:nth-of-type(1) .scroll a {
     border: 1px solid #fff;
     border-radius: 100%;
     transform: translateY(0);
-}
-section:nth-of-type(1) .scroll a.active {
-    animation: scroll 1.5s infinite;
+    animation: scroll 1s infinite;
 }
 
 section:nth-of-type(2) {
-    background-image: url("../img/Synopsis_01.jpg");
+    background: url("../img/Synopsis_00.jpg");
     text-align: center;
     display: flex;
     flex-direction: column-reverse;
     opacity: 0;
-    z-index: 8;
     transition: 1s;
-}
-section:nth-of-type(2).click {
-    opacity: 1;
-    z-index: 9;
-    transition: 1s;
-}
-section:nth-of-type(2).first {
-    background-image: url("../img/Synopsis_01.jpg");
-    opacity: 1;
-    z-index: 9;
-}
-section:nth-of-type(2).second {
-    background-image: url("../img/Synopsis_02.jpg");
-    opacity: 1;
-    z-index: 9;
-}
-section:nth-of-type(2).third {
-    background-image: url("../img/Synopsis_03.jpg");
-    opacity: 1;
-    z-index: 9;
-}
-section:nth-of-type(2) h2 {
-    font-size: 1.875rem;
-    font-weight: 700;
-    border-bottom: 1px solid #fff;
-    margin: 0 auto;
-    position: absolute;
-    right: 2%;
-    top: 2%;
-    opacity: 1;
-}
-section:nth-of-type(2) h2.active {
-    animation: opacity 1s 1s forwards;
 }
 section:nth-of-type(2) article {
     position: absolute;
     left: 0;
     bottom: 8%;
     opacity: 0;
-    z-index: 1;
-    transition: bottom 1s, opacity 1s, z-index 1s;
-}
-section:nth-of-type(2) article.active {
-    bottom: 0;
-    opacity: 1;
-    z-index: 9;
 }
 section:nth-of-type(2) article:nth-of-type(1) {
     margin: 0 0 7% 12%;
@@ -314,10 +284,7 @@ section:nth-of-type(2) article:nth-of-type(2) p {
 section:nth-of-type(2) article:nth-of-type(3) p {
     display: inline-block;
 }
-/* section:nth-of-type(2) article.active {
-    animation: opacity 1s 1s forwards;
-} */
-section:nth-of-type(2) aside a {
+section:nth-of-type(2) .indicator a {
     width: 25px;
     height: 25px;
     border-radius: 100%;
@@ -326,31 +293,29 @@ section:nth-of-type(2) aside a {
     opacity: .5;
     transition: .5s;
 }
-section:nth-of-type(2) aside a:hover {
+section:nth-of-type(2) .indicator a.active {
+    background: #f00;
+}
+section:nth-of-type(2) .indicator a:hover {
     opacity: 1;
     cursor: pointer;
 }
-section:nth-of-type(2) aside a.active {
-    background: #f00;
-}
-
-
 
 section:nth-of-type(3) {
     background-image: url("../img/Casting_01.jpg");
-    opacity: 0;
-    transition: 1s;
-}
-section:nth-of-type(3).click {
-    opacity: 1;
-    z-index: 10;
 }
 
-section:nth-of-type(4) {background-image: url("../img/Trailer.jpg");}
+section:nth-of-type(4) {
+    background-image: url("../img/Trailer_01.jpg");
+}
 
-section:nth-of-type(5) {background-image: url("../img/Ost.jpg");}
+section:nth-of-type(5) {
+    background-image: url("../img/Ost_01.jpg");
+}
 
-section:nth-of-type(6) {background-image: url("../img/Gallery.jpg");}
+section:nth-of-type(6) {
+    background-image: url("../img/Gallery_01.jpg");
+}
 
 
 /* footer */
@@ -359,12 +324,12 @@ footer {
     position: absolute;
     right: 40px;
     bottom: 40px;
-    z-index: 9999;
     opacity: 0;
+    z-index: 9999;
+    transition: 1s;
 }
 footer.active {
-    /* animation: opacity 3s 6s forwards; */
-    animation: opacity 1s 1s forwards;
+    opacity: 1;
 }
 footer a {
     opacity: .7;
