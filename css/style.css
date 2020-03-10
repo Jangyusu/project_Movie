@@ -227,7 +227,7 @@ section:nth-of-type(1) .scroll i {
 }
 
 section:nth-of-type(2) {
-    background: url("../img/Synopsis_00.jpg");
+    background-image: url("../img/Synopsis_00.jpg");
     text-align: center;
     display: flex;
     flex-direction: column-reverse;
@@ -239,6 +239,11 @@ section:nth-of-type(2) article {
     left: 0;
     bottom: 8%;
     opacity: 0;
+    transition: 1s;
+}
+section:nth-of-type(2) article.active {
+    bottom: 0;
+    opacity: 1;
 }
 section:nth-of-type(2) article:nth-of-type(1) {
     margin: 0 0 7% 12%;
@@ -302,7 +307,41 @@ section:nth-of-type(2) .indicator a:hover {
 }
 
 section:nth-of-type(3) {
-    background-image: url("../img/Casting_01.jpg");
+    background-image: url("../img/Casting_00.jpg");
+}
+
+section:nth-of-type(3) .indicator {
+    display: flex;
+    margin: 5% 0 0 12%;
+    align-items: center;
+}
+section:nth-of-type(3) .indicator a {
+    opacity: .5;
+    transition: 1s;
+}
+section:nth-of-type(3) .indicator a.active {
+    transform: rotateY(180deg);
+    opacity: 1;
+}
+section:nth-of-type(3) .indicator a:hover {
+    opacity: 1;
+}
+section:nth-of-type(3) .indicator div {
+    display: flex;
+    overflow: hidden;
+}
+section:nth-of-type(3) .indicator div img {
+    transform: translateX(-1100%);
+    margin-left: 30px;
+    cursor: pointer;
+    opacity: .5;
+    transition: opacity .5s, transform 2.5s;
+}
+section:nth-of-type(3) .indicator div.active img {
+    transform: translateX(0);
+}
+section:nth-of-type(3) .indicator div img:hover {
+    opacity: 1;
 }
 
 section:nth-of-type(4) {

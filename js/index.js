@@ -6,7 +6,20 @@ var menuButton = document.querySelector(".menu_button"),
     scrollDown = document.querySelector(".scroll"),
     section = document.querySelectorAll("section"),
     footer = document.querySelector("footer"),
-    indicator = document.querySelector(".indicator");
+    indicator = document.querySelectorAll(".indicator"),
+    Index = 0;
+
+function getIndex(target) {
+    var i = 0;
+
+    while ((target = target.previousSibling) != null) {
+        if (target.nodeType == 3) {
+        } else {
+            i++;
+        }
+    }
+    return i;
+} // getIndex
 
 start.addEventListener("click", function() {
     start.classList.add("active");
@@ -44,29 +57,37 @@ for (var i = 0; i < menu.children.length; i++) {
     });
 } // 메뉴 선택
 
-var indicatorIndex = 0;
+for (var i = 0; i < indicator[0].children.length; i++) {
+    indicator[0].children[i].addEventListener("click", function() {
+        var pressedIndex = getIndex(event.target);
 
-for (var i = 0; i < indicator.children.length; i++) {
-    indicator.children[i].addEventListener("click", function() {
-        var getIndex2 = getIndex(event.target);
+        indicator[0].children[Index].classList.remove("active");
+        indicator[0].children[pressedIndex].classList.add("active");
 
-        indicator.children[indicatorIndex].classList.remove("active");
-        indicator.children[getIndex2].classList.add("active");
+        section[1].style = "background-image: url('img/Synopsis_0" + pressedIndex + ".jpg')";
 
-        section[1].style.background = "url('img/Synopsis_0" + getIndex2 + ".jpg')";
+        section[1].querySelectorAll("article")[Index].classList.remove("active");
+        section[1].querySelectorAll("article")[pressedIndex].classList.add("active");
 
-        indicatorIndex = getIndex2;
+        Index = pressedIndex;
     });
-} // synopsis
+} // Synopsis 페이지 구현
 
-function getIndex(target) {
-    var i = 0;
+section[2].querySelector("a").addEventListener("click", function() {
+    event.preventDefault();
 
-    while ((target = target.previousSibling) != null) {
-        if (target.nodeType == 3) {
-        } else {
-            i++;
-        }
-    }
-    return i;
-} // getIndex
+    this.classList.toggle("active");
+    indicator[1].querySelector("div").classList.toggle("active");
+});
+
+for (var i = 0; i < indicator[1].querySelectorAll("div img").length; i++) {
+    indicator[1].querySelectorAll("div img")[i].addEventListener("click", function() {
+        event.preventDefault();
+        var pressedIndex2 = getIndex(event.target);
+
+        console.log(event.target);
+
+        indicator[1].querySelector("div").classList.remove("active");
+        section[2].style = "background-image: url('img/Casting_0" + pressedIndex2 + ".jpg')";
+    });
+} // Casting 페이지 구현
