@@ -30,7 +30,7 @@ start.addEventListener("click", function() {
         section[0].classList.add("active");
         section[0].children[2].classList.add("active");
         footer.classList.add("active");
-    }, 3000);
+    }, 10);
 }); // 시작버튼 생성
 
 for (var i = 0; i < menu.children.length; i++) {

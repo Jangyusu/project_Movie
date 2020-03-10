@@ -49,7 +49,7 @@ header > a:last-of-type {
     transform: translateX(-50%) translateY(-50%);
     transition: .5s;
     opacity: .3;
-    z-index: 2;
+    z-index: 9999;
 }
 header > a:last-of-type.active {
     transform: translateX(-80%) translateY(-50%);
@@ -62,7 +62,7 @@ header ul {
     width: 100%;
     position: absolute;
     top: 50%;
-    transform: translateX(-100%) translateY(-50%);
+    transform: translateX(-105%) translateY(-50%);
     transition: 1s;
 }
 header ul.active {
@@ -85,8 +85,8 @@ header ul li a::before {
     left: 0;
     top: 1rem;
     transform: translateY(-0.5rem);
-    z-index: -1;
     opacity: 0;
+    z-index: -1;
 }
 header ul li a:hover {
     opacity: 1;
@@ -109,22 +109,19 @@ section {
     padding: 2vh 0;
     position: absolute;
 }
-section.click {
-    transition: opacity 3.5s, z-index 3.5s;
-    opacity: 1;
-    z-index: 2;
-}
 section h1 {display: none;}
-
 section:nth-of-type(1) {   
     background-image: url("../img/Home.jpg");
     text-align: center;
     text-transform: uppercase;
-    z-index: 2;
+    z-index: 1;
+    transition: 2s;
 }
-section:nth-of-type(1).active {
+section:nth-of-type(1).active,
+section:nth-of-type(1).click {
     /* animation: opacity 10s forwards; */
-    animation: opacity 1s forwards;
+    opacity: 1;
+    z-index: 10;
 }
 section:nth-of-type(1) .director {
     letter-spacing: 0.6rem;
@@ -219,30 +216,33 @@ section:nth-of-type(1) .scroll a.active {
 }
 
 section:nth-of-type(2) {
+    background-image: url("../img/Synopsis_01.jpg");
     text-align: center;
     display: flex;
     flex-direction: column-reverse;
     opacity: 0;
-    z-index: 1;
-    transition: background-image 2s, z-index 2s;
+    z-index: 8;
+    transition: 1s;
+}
+section:nth-of-type(2).click {
+    opacity: 1;
+    z-index: 9;
+    transition: 1s;
 }
 section:nth-of-type(2).first {
     background-image: url("../img/Synopsis_01.jpg");
     opacity: 1;
-    z-index: 2;
-    animation: opacity 2s forwards;
+    z-index: 9;
 }
 section:nth-of-type(2).second {
     background-image: url("../img/Synopsis_02.jpg");
     opacity: 1;
-    z-index: 2;
-    animation: opacity 2s forwards;
+    z-index: 9;
 }
 section:nth-of-type(2).third {
     background-image: url("../img/Synopsis_03.jpg");
     opacity: 1;
-    z-index: 2;
-    animation: opacity 2s forwards;
+    z-index: 9;
 }
 section:nth-of-type(2) h2 {
     font-size: 1.875rem;
@@ -254,20 +254,21 @@ section:nth-of-type(2) h2 {
     top: 2%;
     opacity: 1;
 }
-/* section:nth-of-type(2) h2.active {
+section:nth-of-type(2) h2.active {
     animation: opacity 1s 1s forwards;
-} */
+}
 section:nth-of-type(2) article {
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: 8%;
     opacity: 0;
     z-index: 1;
-    transition: opacity 1s, z-index 1s;
+    transition: bottom 1s, opacity 1s, z-index 1s;
 }
 section:nth-of-type(2) article.active {
+    bottom: 0;
     opacity: 1;
-    z-index: 2;
+    z-index: 9;
 }
 section:nth-of-type(2) article:nth-of-type(1) {
     margin: 0 0 7% 12%;
@@ -335,13 +336,21 @@ section:nth-of-type(2) aside a.active {
 
 
 
-section:nth-of-type(3) {background-image: url("../img/Casting_01.jpg");}
+section:nth-of-type(3) {
+    background-image: url("../img/Casting_01.jpg");
+    opacity: 0;
+    transition: 1s;
+}
+section:nth-of-type(3).click {
+    opacity: 1;
+    z-index: 10;
+}
 
-section:nth-of-type(4) {background-image: url("../img/Home.jpg");}
+section:nth-of-type(4) {background-image: url("../img/Trailer.jpg");}
 
-section:nth-of-type(5) {background-image: url("../img/Home.jpg");}
+section:nth-of-type(5) {background-image: url("../img/Ost.jpg");}
 
-section:nth-of-type(6) {background-image: url("../img/Home.jpg");}
+section:nth-of-type(6) {background-image: url("../img/Gallery.jpg");}
 
 
 /* footer */
