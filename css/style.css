@@ -431,13 +431,29 @@ section:nth-of-type(4)::before {
     opacity: .5;
     z-index: -1;
 }
-section:nth-of-type(4) ul {} 
-section:nth-of-type(4) ul li {} 
 section:nth-of-type(4) .video {
     width: 70vw;
     height: 60vh;
     margin: 0 auto;
     position: relative;
+}
+section:nth-of-type(4) .video img {
+    position: absolute;
+    top: 50%;
+    opacity: 0.5;
+    transition: 1s;
+}
+section:nth-of-type(4) .video img:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+section:nth-of-type(4) .video img:first-of-type {
+    left: 0;
+    transform: translateX(-300%) translateY(-50%) rotateY(180deg);
+}
+section:nth-of-type(4) .video img:last-of-type {
+    right: 0;
+    transform: translateX(300%) translateY(-50%);
 }
 section:nth-of-type(4) .video iframe {
     position: absolute;
