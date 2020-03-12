@@ -557,6 +557,9 @@ section:nth-of-type(5) ul li > p {
     font-size: 1.2rem;
     margin-top : 8%;
 }
+section:nth-of-type(5) ul li video {
+    display: none;
+}
 
 section:nth-of-type(6) {
     background-image: url("../img/Gallery_01.jpg");

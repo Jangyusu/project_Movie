@@ -157,16 +157,18 @@ section[3].querySelectorAll("i")[1].addEventListener("click", function() {
     }
 }); //trailer 페이지 구현
 
-var a = getComputedStyle(document.querySelector(".a"), ":before");
-console.log(a.backgroundImage);
-
 for (var i = 0; i < section[4].querySelectorAll("i").length; i++) {
     section[4].querySelectorAll("i")[i].addEventListener("click", function() {
-        var pressedIndex = getIndex(event.target.parentNode.parentNode);
-
-        a = "background-image: url('img/Ost_0" + (pressedIndex + 1) + ".jpg')";
-
-        console.log(pressedIndex);
+        if (event.target.classList.contains("fa-play")) {
+            for (var i = 0; i < section[4].querySelectorAll("video").length; i++) {
+                section[4].querySelectorAll("i")[i].classList.replace("fa-pause", "fa-play");
+                section[4].querySelectorAll("video")[i].pause();
+            }
+            event.target.classList.replace("fa-play", "fa-pause");
+            event.target.parentNode.parentNode.querySelector("video").play();
+        } else {
+            event.target.classList.replace("fa-pause", "fa-play");
+            event.target.parentNode.parentNode.querySelector("video").pause();
+        }
     });
-}
-//Ost 페이지 구현
+} //Ost 페이지 구현
