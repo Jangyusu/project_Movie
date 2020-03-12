@@ -7,9 +7,11 @@ var menuButton = document.querySelector(".menu_button"),
     section = document.querySelectorAll("section"),
     footer = document.querySelector("footer"),
     indicator = document.querySelectorAll(".indicator"),
+    video = document.querySelector(".video"),
     pageIndex = 0,
     synopsisIndex = 0,
-    castingIndex = 0;
+    castingIndex = 0,
+    trailerIndex = 0;
 
 function getIndex(target) {
     var i = 0;
@@ -57,6 +59,19 @@ for (var i = 0; i < menu.children.length; i++) {
         section[pressedIndex].classList.add("active");
 
         pageIndex = pressedIndex;
+
+        for (var i = 0; i < section[1].querySelectorAll("article").length; i++) {
+            section[1].querySelectorAll("article")[i].classList.remove("active");
+        }
+
+        for (var i = 0; i < section[2].querySelectorAll("article").length; i++) {
+            section[2].querySelectorAll("article")[i].classList.remove("active");
+        }
+
+        for (var i = 0; i < video.querySelectorAll("div").length; i++) {
+            video.querySelectorAll("div")[i].classList.remove("active");
+        }
+        trailerIndex = 0;
     });
 } // 메뉴 선택
 
@@ -64,34 +79,94 @@ for (var i = 0; i < indicator[0].children.length; i++) {
     indicator[0].children[i].addEventListener("click", function() {
         var pressedIndex = getIndex(event.target);
 
-        indicator[0].children[synopsisIndex].classList.remove("active");
-        indicator[0].children[pressedIndex].classList.add("active");
+        for (var i = 0; i < indicator[0].children.length; i++) {
+            indicator[0].children[i].classList.remove("active");
+            section[1].querySelectorAll("article")[i].classList.remove("active");
+        }
 
-        section[1].querySelectorAll("article")[synopsisIndex].classList.remove("active");
+        indicator[0].children[pressedIndex].classList.add("active");
         section[1].querySelectorAll("article")[pressedIndex].classList.add("active");
 
         section[1].style = "background-image: url('img/Synopsis_0" + pressedIndex + ".jpg')";
-
-        synopsisIndex = pressedIndex;
     });
-} // Synopsis 페이지 구현
+}
 
-section[2].querySelector("a").addEventListener("click", function() {
-    event.preventDefault();
+menu.children[1].addEventListener("click", function() {
+    section[1].querySelectorAll("article")[0].classList.add("active");
+    section[1].style = "background-image: url('img/Synopsis_00.jpg')";
 
+    for (var i = 0; i < indicator[0].children.length; i++) {
+        indicator[0].children[i].classList.remove("active");
+    }
+    indicator[0].children[0].classList.add("active");
+}); // Synopsis 페이지 구현
+
+indicator[1].querySelector("i").addEventListener("click", function() {
     this.classList.toggle("active"); // 화살표
     indicator[1].querySelector("div").classList.toggle("active"); // 배우 리스트
+});
+
+menu.children[2].addEventListener("click", function() {
+    for (var i = 0; i < section[2].querySelectorAll("article").length; i++) {
+        section[2].querySelectorAll("article")[i].classList.remove("active");
+    }
+    section[2].querySelectorAll("article")[0].classList.add("active");
+    section[2].style = "background-image: url('img/Casting_00.jpg')";
 });
 
 for (var i = 0; i < indicator[1].querySelectorAll("div div img").length; i++) {
     indicator[1].querySelectorAll("div div img")[i].addEventListener("click", function() {
         var pressedIndex = getIndex(event.target);
 
-        section[2].querySelectorAll("article")[castingIndex].classList.remove("active");
+        for (var i = 0; i < section[2].querySelectorAll("article").length; i++) {
+            section[2].querySelectorAll("article")[i].classList.remove("active");
+        }
         section[2].querySelectorAll("article")[pressedIndex].classList.add("active");
 
         section[2].style = "background-image: url('img/Casting_0" + pressedIndex + ".jpg')";
-
-        castingIndex = pressedIndex;
     });
 } // Casting 페이지 구현
+
+menu.children[3].addEventListener("click", function() {
+    video.querySelectorAll("div")[0].classList.add("active");
+});
+
+section[3].querySelectorAll("i")[0].addEventListener("click", function() {
+    if (trailerIndex > 0) {
+        trailerIndex--;
+
+        for (var i = 0; i < video.querySelectorAll("div").length; i++) {
+            video.querySelectorAll("div")[i].classList.remove("active");
+        }
+        video.querySelectorAll("div")[trailerIndex].classList.add("active");
+
+        console.log(trailerIndex);
+    }
+});
+
+section[3].querySelectorAll("i")[1].addEventListener("click", function() {
+    if (trailerIndex < video.querySelectorAll("div").length - 1) {
+        trailerIndex++;
+
+        for (var i = 0; i < video.querySelectorAll("div").length; i++) {
+            video.querySelectorAll("div")[i].classList.remove("active");
+        }
+        video.querySelectorAll("div")[trailerIndex].classList.add("active");
+
+        console.log(trailerIndex);
+    }
+}); //trailer 페이지 구현
+
+var a = getComputedStyle(document.querySelector(".a"), ":before");
+console.log(a.backgroundImage);
+
+for (var i = 0; i < section[4].querySelectorAll("i").length; i++) {
+    section[4].querySelectorAll("i")[i].addEventListener("click", function() {
+        var pressedIndex = getIndex(event.target.parentNode.parentNode);
+
+        a = "background-image: url('img/Ost_0" + (pressedIndex + 1) + ".jpg')";
+
+        console.log(pressedIndex);
+    });
+}
+//Ost 페이지 구현

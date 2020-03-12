@@ -2,7 +2,6 @@
 
 
 /* start */
-
 .start {
     position: absolute;
     left: 50%;
@@ -24,8 +23,8 @@
     transform: translateX(-50%) translateY(-50%) scale(.7);
 }
 
-/* header */
 
+/* header */
 header {
     width: 8%;
     height: 100vh;
@@ -37,10 +36,12 @@ header {
     justify-content: space-between;
     opacity: 0;
     transition: 1s;
+    visibility: hidden;
 }
 header.active {
     opacity: 1;
     z-index: 9999;
+    visibility: visible;
 }
 header .menu_button {
     position: absolute;
@@ -97,7 +98,6 @@ header .menu li:hover::before {
 
 
 /* section */
-
 section {
     width: 100vw;
     height: 100vh;
@@ -205,7 +205,7 @@ section:nth-of-type(1) .scroll {
     transition: 1s;
 }
 section:nth-of-type(1) .scroll.active {
-    opacity: 1;
+    opacity: .5;
 }
 section:nth-of-type(1) .scroll span {
     text-transform: none;
@@ -223,7 +223,7 @@ section:nth-of-type(1) .scroll i {
     border: 1px solid #fff;
     border-radius: 100%;
     transform: translateY(0);
-    animation: scroll 1s infinite;
+    animation: scroll 1s ease-out infinite;
 }
 
 section:nth-of-type(2) {
@@ -312,15 +312,17 @@ section:nth-of-type(3) .indicator {
     margin: 8% 0 0 12%;
     align-items: center;
 }
-section:nth-of-type(3) .indicator a {
+section:nth-of-type(3) .indicator i {
+    font-size: 2rem;
     opacity: .5;
     transition: 1s;
 }
-section:nth-of-type(3) .indicator a.active {
+section:nth-of-type(3) .indicator i.active {
     transform: rotateY(180deg);
     opacity: 1;
 }
-section:nth-of-type(3) .indicator a:hover {
+section:nth-of-type(3) .indicator i:hover {
+    cursor: pointer;
     opacity: 1;
 }
 section:nth-of-type(3) .indicator div {
@@ -414,7 +416,9 @@ section:nth-of-type(3) article:nth-of-type(7){
     transform: translateX(-30vw) translateY(5vh);
 }
 section:nth-of-type(4) {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 section:nth-of-type(4)::before {
     background-image: url("../img/Trailer_00.jpg");
@@ -431,43 +435,127 @@ section:nth-of-type(4)::before {
     opacity: .5;
     z-index: -1;
 }
-section:nth-of-type(4) .video {
-    width: 70vw;
-    height: 60vh;
-    margin: 0 auto;
-    position: relative;
-}
-section:nth-of-type(4) .video img {
-    position: absolute;
-    top: 50%;
-    opacity: 0.5;
+section:nth-of-type(4) i {
+    font-size: 2rem;
+    opacity: 0.3;
     transition: 1s;
 }
-section:nth-of-type(4) .video img:hover {
+section:nth-of-type(4) i:hover {
     cursor: pointer;
+    transform: scale(1.2);
     opacity: 1;
 }
-section:nth-of-type(4) .video img:first-of-type {
+section:nth-of-type(4) .video {
+    width: 60vw;
+    height: 50vh;
+    position: relative;
+    margin: 0 6%;
+}
+section:nth-of-type(4) .video div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
     left: 0;
-    transform: translateX(-300%) translateY(-50%) rotateY(180deg);
+    top: 0;
+    text-align: center;
+    opacity: 0;
+    transition: 1s;
+    visibility: hidden;
+    transform: scale(.95);
 }
-section:nth-of-type(4) .video img:last-of-type {
-    right: 0;
-    transform: translateX(300%) translateY(-50%);
+section:nth-of-type(4) .video div.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
 }
-section:nth-of-type(4) .video iframe {
+section:nth-of-type(4) .video div p{
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: -15%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    letter-spacing: .18rem;
+}
+
+section:nth-of-type(5) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section:nth-of-type(5)::before {
+    background-image: url("../img/Ost_00.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    content: "";
+    width: 100vw;
+    height: 100vh;
+    filter: blur(3px);
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: .5;
+    z-index: -1;
+}
+section:nth-of-type(5) ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section:nth-of-type(5) ul li {
+    text-align: center;
+}
+section:nth-of-type(5) ul li:nth-of-type(2) {
+    margin: 0 12vw;
+}
+section:nth-of-type(5) ul li div {
+    width: 241px;
+    height: 241px;
+    background-size: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+section:nth-of-type(5) ul li:nth-of-type(1) div {
+    background-image: url("../img/Ost_01.png");
+}
+section:nth-of-type(5) ul li:nth-of-type(2) div {
+    background-image: url("../img/Ost_02.png");
+}
+section:nth-of-type(5) ul li:nth-of-type(3) div {
+    background-image: url("../img/Ost_03.png");
+}
+section:nth-of-type(5) ul li div i {
+    font-size: 1.5rem;
+}
+section:nth-of-type(5) ul li div i::before{
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
-    visibility: hidden;
+    cursor: pointer;
 }
-section:nth-of-type(4) .video iframe.active {
-    visibility: visible;
+section:nth-of-type(5) ul li div i p {
+    display: flex;
+    transform: translateY(400%);
 }
-
-section:nth-of-type(5) {
-    background-image: url("../img/Ost_01.jpg");
+section:nth-of-type(5) ul li div i span {
+    display: flex;
+    align-items: center;
+}
+section:nth-of-type(5) ul li div i span::before {
+    content: "";
+    width: 40px;
+    height: 1px;
+    background: #fff;
+    margin: 0 10px;
+}
+section:nth-of-type(5) ul li > p {
+    font-size: 1.2rem;
+    margin-top : 8%;
 }
 
 section:nth-of-type(6) {
@@ -476,7 +564,6 @@ section:nth-of-type(6) {
 
 
 /* footer */
-
 footer {
     position: absolute;
     right: 40px;
@@ -502,7 +589,6 @@ footer a:hover {
 
 
 /* line */
-
 .line {
     margin: 1.5% 0;
 }
@@ -517,31 +603,9 @@ footer a:hover {
 
 
 /* keyframes */
-
-@keyframes opacity {
-    100% {
-        opacity: 1;
-    }
-}
-@keyframes up {
-    100% {
-        transform: translateX(-50%) translateY(0);
-    }
-}
-@keyframes down {
-    100% {
-        transform: translateX(-50%) translateY(0);
-    }
-}
-@keyframes title {
-    100%{
-        letter-spacing: 2rem;
-        opacity: 1;
-    }
-}
 @keyframes scroll {
     50% {
-        transform: translateY(30%);
+        transform: translateY(20%);
     }
     100% {
         transform: translateY(0);
