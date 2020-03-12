@@ -157,18 +157,34 @@ section[3].querySelectorAll("i")[1].addEventListener("click", function() {
     }
 }); //trailer 페이지 구현
 
-for (var i = 0; i < section[4].querySelectorAll("i").length; i++) {
-    section[4].querySelectorAll("i")[i].addEventListener("click", function() {
-        if (event.target.classList.contains("fa-play")) {
-            for (var i = 0; i < section[4].querySelectorAll("video").length; i++) {
-                section[4].querySelectorAll("i")[i].classList.replace("fa-pause", "fa-play");
-                section[4].querySelectorAll("video")[i].pause();
+for (var i = 0; i < section[4].querySelectorAll("div").length; i++) {
+    section[4]
+        .querySelectorAll("div")
+        [i].querySelector("i")
+        .addEventListener("click", function() {
+            if (event.target.classList.contains("fa-play")) {
+                for (var i = 0; i < section[4].querySelectorAll("video").length; i++) {
+                    section[4]
+                        .querySelectorAll("div")
+                        [i].querySelector("i")
+                        .classList.replace("fa-pause", "fa-play");
+                    section[4].querySelectorAll("video")[i].pause();
+                }
+                event.target.classList.replace("fa-play", "fa-pause");
+                event.target.parentNode.parentNode.querySelector("video").play();
+            } else {
+                event.target.classList.replace("fa-pause", "fa-play");
+                event.target.parentNode.parentNode.querySelector("video").pause();
             }
-            event.target.classList.replace("fa-play", "fa-pause");
-            event.target.parentNode.parentNode.querySelector("video").play();
-        } else {
-            event.target.classList.replace("fa-pause", "fa-play");
-            event.target.parentNode.parentNode.querySelector("video").pause();
-        }
-    });
-} //Ost 페이지 구현
+        });
+
+    section[4]
+        .querySelectorAll("div")
+        [i].querySelectorAll("i")[1]
+        .addEventListener("click", function() {
+            event.target.parentNode.parentNode.querySelector("video").load();
+            event.target.previousSibling.previousSibling.classList.replace("fa-pause", "fa-play");
+        });
+}
+
+//Ost 페이지 구현
