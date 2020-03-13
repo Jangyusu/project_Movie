@@ -611,8 +611,8 @@ section:nth-of-type(6) {
 /* footer */
 footer {
     position: fixed;
-    right: 40px;
-    bottom: 40px;
+    right: 2%;
+    bottom: 2%;
     opacity: 0;
     z-index: 9999;
     transition: 1s;
@@ -620,37 +620,37 @@ footer {
 footer.active {
     opacity: 1;
 }
-footer i {
-    font-size: 2rem;
+footer .music {
     position: fixed;
     left: 50%;
-    bottom: 0;
-    opacity: 0;
     transform: translateX(-50%) translateY(100%);
-    transition: 1s;
-}
-footer i.active {
-    opacity: 1;
-    transform: translateX(-50%) translateY(-100%);
     display: flex;
     align-items: center;
     justify-self: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: 2s;
 }
-footer i::after {
-    content: "asfadfs";
-    margin-left: 15px;
+footer .music.active {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-50%);
+}
+footer .music i {
     font-size: 1.5rem;
-    font-weight: 300;
 }
-footer a {
+footer .music p {
+    font-size: 1.2rem;
+    padding-left: 10px;
+}
+footer .sns a {
     opacity: .7;
     margin-left: 30px;
     transition: .5s;
 }
-footer a:first-of-type {
+footer .sns a:first-of-type {
     margin-left: 0;
 }
-footer a:hover {
+footer .sns a:hover {
     opacity: 1;
 }
 

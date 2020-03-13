@@ -6,9 +6,10 @@ var menuButton = document.querySelector(".menu_button"),
     scrollDown = document.querySelector(".scroll"),
     section = document.querySelectorAll("section"),
     footer = document.querySelector("footer"),
+    music = footer.querySelector(".music"),
+    musicTitle = footer.querySelector(".music p"),
     indicator = document.querySelectorAll(".indicator"),
     video = document.querySelector(".video"),
-    pageIndex = 0,
     synopsisIndex = 0,
     castingIndex = 0,
     trailerIndex = 0,
@@ -51,7 +52,9 @@ for (var i = 0; i < section[4].querySelectorAll("div").length; i++) {
         .querySelectorAll("div")
         [i].querySelectorAll("i")[1]
         .addEventListener("click", stop); //음악 정지 버튼
-} //Ost 페이지 구현
+} //Ost 음악 재생 및 정지 버튼
+
+music.addEventListener("click", musicInPlay); //음악 플레이어
 
 function getIndex(target) {
     var i = 0;
@@ -78,6 +81,7 @@ function start() {
         scrollDown.classList.add("active");
         scrollDown.querySelector("i").classList.add("active");
         footer.classList.add("active");
+        section[4].querySelector("i").click();
     }, 10);
 } //시작 버튼
 
@@ -91,13 +95,13 @@ function menuToggle() {
 function menuSelect() {
     var pressedIndex = getIndex(event.target);
 
-    menuButton.classList.toggle("active");
-    menu.classList.toggle("active");
-
-    section[pageIndex].classList.remove("active");
+    for (var i = 0; i < section.length; i++) {
+        section[i].classList.remove("active");
+    }
     section[pressedIndex].classList.add("active");
 
-    pageIndex = pressedIndex;
+    menuButton.classList.toggle("active");
+    menu.classList.toggle("active");
 
     for (var i = 0; i < section[1].querySelectorAll("article").length; i++) {
         section[1].querySelectorAll("article")[i].classList.remove("active");
@@ -241,7 +245,8 @@ function playPause() {
             targetParent.querySelectorAll("i")[i].classList.add("active");
         }
 
-        footer.querySelector("i").classList.add("active");
+        musicTitle.textContent = targetParent.querySelector("p").textContent;
+        music.classList.add("active"); //노래 재생시 헤드폰 출현
     } else {
         //일시정지 버튼
         target.classList.replace("fa-pause", "fa-play");
@@ -255,7 +260,7 @@ function playPause() {
             section[4].querySelectorAll("div")[i].classList.remove("active"); //bounce 정지
         }
 
-        footer.querySelector("i").classList.remove("active");
+        music.classList.remove("active"); //노래 정지시 헤드폰 숨김
     }
 } //Ost 시작 및 일시정지 버튼
 
@@ -282,5 +287,12 @@ function stop() {
     sec = 1; //선택한 노래 시간 초기화
     min = 1; //선택한 노래 시간 초기화
 
-    footer.querySelector("i").classList.remove("active");
+    music.classList.remove("active"); //노래 정지시 헤드폰 숨김
 } //Ost 정지 버튼
+
+function musicInPlay() {
+    for (var i = 0; i < section.length; i++) {
+        section[i].classList.remove("active");
+    }
+    section[4].classList.add("active");
+}
