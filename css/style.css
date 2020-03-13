@@ -15,7 +15,7 @@
 .start:hover{
     cursor: pointer;
     opacity: 1;
-    transform: translateX(-50%) translateY(-50%) scale(1);
+    transform: translateX(-50%) translateY(-50%) scale(1); */
 }
 .start.active {
     visibility: hidden;
@@ -124,15 +124,17 @@ section h2 {
     top: 6%;
     opacity: 1;
 }
+section:nth-of-type(n).active {
+    opacity: 1;
+}
+
+/* Home */
 section:nth-of-type(1) {   
     background-image: url("../img/Home.jpg");
     text-align: center;
     text-transform: uppercase;
     transition: 1s;
     opacity: 0;
-}
-section:nth-of-type(n).active {
-    opacity: 1;
 }
 section:nth-of-type(1) .director {
     letter-spacing: 0.6rem;
@@ -226,6 +228,7 @@ section:nth-of-type(1) .scroll i {
     animation: scroll 1s ease-out infinite;
 }
 
+/* Synopsis */
 section:nth-of-type(2) {
     background-image: url("../img/Synopsis_00.jpg");
     text-align: center;
@@ -303,6 +306,7 @@ section:nth-of-type(2) .indicator li:hover {
     opacity: 1;
 }
 
+/* Casting */
 section:nth-of-type(3) {
     background-image: url("../img/Casting_00.jpg");
 }
@@ -415,6 +419,8 @@ section:nth-of-type(3) article:nth-of-type(6){
 section:nth-of-type(3) article:nth-of-type(7){
     transform: translateX(-30vw) translateY(5vh);
 }
+
+/* Trailer */
 section:nth-of-type(4) {
     display: flex;
     justify-content: center;
@@ -478,6 +484,7 @@ section:nth-of-type(4) .video div p{
     letter-spacing: .18rem;
 }
 
+/* Ost */
 section:nth-of-type(5) {
     display: flex;
     justify-content: center;
@@ -515,7 +522,7 @@ section:nth-of-type(5) ul li div {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #fff;
+    border: 2px solid #fff;
     border-radius: 100%;
 }
 section:nth-of-type(5) ul li:nth-of-type(1) div {
@@ -527,28 +534,44 @@ section:nth-of-type(5) ul li:nth-of-type(2) div {
 section:nth-of-type(5) ul li:nth-of-type(3) div {
     background-image: url("../img/Ost_03.png");
 }
+section:nth-of-type(5) ul li div {
+    position: relative;
+}
+section:nth-of-type(5) ul li div::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border: 1px solid #fff;
+    border-radius: 100%;
+    z-index: -1;
+    opacity: .7;
+    visibility: visible;
+}
+section:nth-of-type(5) ul li div.active::after {
+    animation: bounce 1.5s infinite;
+}
 section:nth-of-type(5) ul li div i {
-    font-size: 1.5rem;
-    margin: 0 10%;
+    font-size: 1.8rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    transition: .5s;
 }
 section:nth-of-type(5) ul li div i:hover {
     cursor: pointer;
 }
-section:nth-of-type(5) ul li div p {
-    display: flex;
-    transform: translateY(400%);
+section:nth-of-type(5) ul li div i:last-of-type {
+    visibility: hidden;
+    opacity: 0;
 }
-section:nth-of-type(5) ul li span {
-    display: flex;
-    align-items: center;
+section:nth-of-type(5) ul li div i:first-of-type.active {
+    transform: translateX(-200%) translateY(-50%);
 }
-section:nth-of-type(5) ul li span::before {
-    content: "";
-    width: 40px;
-    height: 1px;
-    background: #fff;
-    display: block;
-    margin: 0 10px;
+section:nth-of-type(5) ul li div i:last-of-type.active {
+    transform: translateX(100%) translateY(-50%);
+    visibility: visible;
+    opacity: 1;
 }
 section:nth-of-type(5) ul li p {
     font-size: 1.2rem;
@@ -557,15 +580,29 @@ section:nth-of-type(5) ul li p {
 section:nth-of-type(5) ul li p:last-of-type {
     display: flex;
     justify-content: center;
+    align-items: center;
     letter-spacing: 0.15rem;
 }
 section:nth-of-type(5) ul li p span {
     font-size: 1.2rem;
 }
+section:nth-of-type(5) ul li p .music_time{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section:nth-of-type(5) ul li p .music_time::before {
+    content: "";
+    width: 40px;
+    height: 1px;
+    background: #fff;
+    margin: 0 10px;
+}
 section:nth-of-type(5) ul li video {
     display: none;
 }
 
+/* Gallery */
 section:nth-of-type(6) {
     background-image: url("../img/Gallery_01.jpg");
 }
@@ -573,7 +610,7 @@ section:nth-of-type(6) {
 
 /* footer */
 footer {
-    position: absolute;
+    position: fixed;
     right: 40px;
     bottom: 40px;
     opacity: 0;
@@ -582,6 +619,28 @@ footer {
 }
 footer.active {
     opacity: 1;
+}
+footer i {
+    font-size: 2rem;
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    opacity: 0;
+    transform: translateX(-50%) translateY(100%);
+    transition: 1s;
+}
+footer i.active {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-100%);
+    display: flex;
+    align-items: center;
+    justify-self: center;
+}
+footer i::after {
+    content: "asfadfs";
+    margin-left: 15px;
+    font-size: 1.5rem;
+    font-weight: 300;
 }
 footer a {
     opacity: .7;
@@ -617,5 +676,12 @@ footer a:hover {
     }
     100% {
         transform: translateY(0);
+    }
+}
+@keyframes bounce {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(1.5);
     }
 }
