@@ -90,6 +90,7 @@ function menuToggle() {
 
     menuButton.classList.toggle("active");
     menu.classList.toggle("active");
+    menuButton.classList.remove("flash");
 } //메뉴 토글
 
 function menuSelect() {
