@@ -444,23 +444,23 @@ section:nth-of-type(4)::before {
     opacity: .5;
     z-index: -1;
 }
-section:nth-of-type(4) i {
+section:nth-of-type(4) .trailer_control {
     font-size: 2rem;
     opacity: 0.3;
     transition: 1s;
 }
-section:nth-of-type(4) i:hover {
+section:nth-of-type(4) .trailer_control:hover {
     cursor: pointer;
     transform: scale(1.2);
     opacity: 1;
 }
-section:nth-of-type(4) .video {
+section:nth-of-type(4) .videos {
     width: 60vw;
     height: 50vh;
     position: relative;
     margin: 0 6%;
 }
-section:nth-of-type(4) .video div {
+section:nth-of-type(4) .videos .video {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -472,12 +472,12 @@ section:nth-of-type(4) .video div {
     visibility: hidden;
     transform: scale(.95);
 }
-section:nth-of-type(4) .video div.active {
+section:nth-of-type(4) .videos .video.active {
     opacity: 1;
     visibility: visible;
     transform: scale(1);
 }
-section:nth-of-type(4) .video div p{
+section:nth-of-type(4) .videos .video .video_title{
     width: 100%;
     position: absolute;
     left: 50%;
@@ -486,7 +486,7 @@ section:nth-of-type(4) .video div p{
     font-size: 2rem;
     letter-spacing: .18rem;
 }
-section:nth-of-type(4) .video div iframe {
+section:nth-of-type(4) .videos .video iframe {
     width: 60vw;
     height: 50vh;
     border: 0;
@@ -659,7 +659,7 @@ footer {
 footer.active {
     opacity: 1;
 }
-footer .music {
+footer .playing_music {
     position: fixed;
     left: 50%;
     transform: translateX(-50%) translateY(100%);
@@ -670,14 +670,14 @@ footer .music {
     opacity: 0;
     transition: 2s;
 }
-footer .music.active {
+footer .playing_music.active {
     opacity: 1;
     transform: translateX(-50%) translateY(-50%);
 }
-footer .music i {
+footer .playing_music i {
     font-size: 1.5rem;
 }
-footer .music p {
+footer .playing_music .playing_music_title {
     font-size: 1.2rem;
     padding-left: 10px;
 }
