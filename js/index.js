@@ -1,37 +1,41 @@
+// start
 var startButton = document.querySelector(".start"),
+    // header
     header = document.querySelector("header"),
-    //
+    // menu
     menuButton = document.querySelector(".menu_button"),
     menus = document.querySelector(".menus"),
     menu = document.querySelectorAll(".menu"),
-    // menu
+    scrollDown = document.querySelector(".scroll"),
+    wheelIndex = 0,
+    wheelDelay = true,
     director = document.querySelector(".director"),
     section = document.querySelectorAll("section"),
-    scrollDown = document.querySelector(".scroll"),
-    video = document.querySelector(".video"),
-    footer = document.querySelector("footer"),
-    music = footer.querySelector(".music"),
-    musicTitle = footer.querySelector(".music p"),
-    //
+    // synopsis
     synopsisInds = document.querySelector(".synopsis_indicators"),
     synopsisInd = document.querySelectorAll(".synopsis_indicator"),
     synopsisList = section[1].querySelectorAll("article"),
-    // synopsis
-
-    castingCon = document.querySelector(".casting_rightarrow"),
+    synopsisIndex = 0,
+    // casting
+    castingCon = document.querySelector(".casting_control"),
     castingInds = document.querySelector(".casting_indicators"),
     castingInd = document.querySelectorAll(".casting_indicator"),
-    // casting
-    photos = document.querySelectorAll(".photo"),
-    photoView = document.querySelector(".photo_view"),
-    wheelIndex = 0,
-    synopsisIndex = 0,
     castingIndex = 0,
+    // trailer
+    trailerCon = document.querySelectorAll(".trailer_control"),
     trailerIndex = 0,
+    // ost
+    video = document.querySelector(".video"),
+    music = footer.querySelector(".music"),
+    musicTitle = footer.querySelector(".music p"),
     startTime,
     sec,
     min,
-    wheelDelay = true;
+    // gallery
+    photos = document.querySelectorAll(".photo"),
+    photoView = document.querySelector(".photo_view"),
+    // footer
+    footer = document.querySelector("footer");
 
 window.addEventListener("mousewheel", scrolling); //마우스 휠
 startButton.addEventListener("click", start); //시작 버튼
@@ -50,8 +54,8 @@ menu[3].addEventListener("click", function() {
     video.querySelectorAll("div")[0].classList.add("active");
 }); //Trailer 첫화면
 
-section[3].querySelectorAll("i")[0].addEventListener("click", prevTrailer); //Trailer prev 버튼
-section[3].querySelectorAll("i")[1].addEventListener("click", nextTrailer); //trailer next 버튼
+trailerCon[0].addEventListener("click", prevTrailer); //Trailer prev 버튼
+trailerCon[1].addEventListener("click", nextTrailer); //trailer next 버튼
 
 for (var i = 0; i < section[4].querySelectorAll("div").length; i++) {
     section[4]
@@ -155,7 +159,7 @@ function synopsisImg() {
 
 function castingOnOff() {
     this.classList.toggle("active"); // 화살표
-    catingInds.classList.toggle("active"); // 배우 리스트
+    castingInds.classList.toggle("active"); // 배우 리스트
 } //casting on/off 버튼
 
 function catingImg() {
