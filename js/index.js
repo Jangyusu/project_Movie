@@ -1,16 +1,27 @@
-var menuButton = document.querySelector(".menu_button"),
-    menu = document.querySelector(".menu"),
-    startButton = document.querySelector(".start"),
+var startButton = document.querySelector(".start"),
     header = document.querySelector("header"),
+    //
+    menuButton = document.querySelector(".menu_button"),
+    menus = document.querySelector(".menus"),
+    menu = document.querySelectorAll(".menu"),
+    // menu
     director = document.querySelector(".director"),
     section = document.querySelectorAll("section"),
-    synopsisList = section[1].querySelectorAll("article"),
     scrollDown = document.querySelector(".scroll"),
     video = document.querySelector(".video"),
     footer = document.querySelector("footer"),
     music = footer.querySelector(".music"),
     musicTitle = footer.querySelector(".music p"),
-    indicator = document.querySelectorAll(".indicator"),
+    //
+    synopsisInds = document.querySelector(".synopsis_indicators"),
+    synopsisInd = document.querySelectorAll(".synopsis_indicator"),
+    synopsisList = section[1].querySelectorAll("article"),
+    // synopsis
+
+    castingCon = document.querySelector(".casting_rightarrow"),
+    castingInds = document.querySelector(".casting_indicators"),
+    castingInd = document.querySelectorAll(".casting_indicator"),
+    // casting
     photos = document.querySelectorAll(".photo"),
     photoView = document.querySelector(".photo_view"),
     wheelIndex = 0,
@@ -22,27 +33,20 @@ var menuButton = document.querySelector(".menu_button"),
     min,
     wheelDelay = true;
 
+window.addEventListener("mousewheel", scrolling); //마우스 휠
 startButton.addEventListener("click", start); //시작 버튼
 menuButton.addEventListener("click", menuToggle); //메뉴 토글
+menu.forEach(menu => menu.addEventListener("click", menuSelect)); //메뉴 선택
 
-window.addEventListener("mousewheel", scrolling); //마우스 휠
+synopsisInd.forEach(synopsisInd => synopsisInd.addEventListener("click", synopsisIndicator)); //synopsis indicator 버튼
+menu[1].addEventListener("click", synopsisImg); //synopsis img 변경
 
-for (var i = 0; i < menu.children.length; i++) {
-    menu.children[i].addEventListener("click", menuSelect);
-} //메뉴 선택
+castingCon.addEventListener("click", castingOnOff); //casting on/off 버튼
+menu[2].addEventListener("click", catingImg); //casting img 변경
 
-for (var i = 0; i < indicator[0].children.length; i++) {
-    indicator[0].children[i].addEventListener("click", synopsisIndicator);
-} //synopsis indicator 버튼
-menu.children[1].addEventListener("click", synopsisImg); //synopsis img 변경
+castingInd.forEach(castingInd => castingInd.addEventListener("click", castingIndicator)); //Casting indicator 버튼
 
-indicator[1].querySelector("i").addEventListener("click", castingOnOff); //casting on/off 버튼
-menu.children[2].addEventListener("click", catingImg); //casting img 변경
-for (var i = 0; i < indicator[1].querySelectorAll("img").length; i++) {
-    indicator[1].querySelectorAll("img")[i].addEventListener("click", castingIndicator);
-} //Casting indicator 버튼
-
-menu.children[3].addEventListener("click", function() {
+menu[3].addEventListener("click", function() {
     video.querySelectorAll("div")[0].classList.add("active");
 }); //Trailer 첫화면
 
@@ -99,7 +103,7 @@ function menuToggle() {
     event.preventDefault();
 
     menuButton.classList.toggle("active");
-    menu.classList.toggle("active");
+    menus.classList.toggle("active");
     menuButton.classList.remove("flash");
 } //메뉴 토글
 
@@ -110,7 +114,7 @@ function menuSelect() {
     section[pressedIndex].classList.add("active");
 
     menuButton.classList.toggle("active");
-    menu.classList.toggle("active");
+    menus.classList.toggle("active");
 
     synopsisList.forEach(synopsisList => synopsisList.classList.remove("active"));
 
@@ -127,12 +131,12 @@ function menuSelect() {
 function synopsisIndicator() {
     var pressedIndex = getIndex(event.target);
 
-    for (var i = 0; i < indicator[0].children.length; i++) {
-        indicator[0].children[i].classList.remove("active");
+    for (var i = 0; i < synopsisInd.length; i++) {
+        synopsisInd[i].classList.remove("active");
         synopsisList[i].classList.remove("active");
     }
 
-    indicator[0].children[pressedIndex].classList.add("active");
+    synopsisInd[pressedIndex].classList.add("active");
     synopsisList[pressedIndex].classList.add("active");
 
     section[1].style = "background-image: url('img/Synopsis_0" + pressedIndex + ".jpg')";
@@ -142,15 +146,16 @@ function synopsisImg() {
     synopsisList[0].classList.add("active");
     section[1].style = "background-image: url('img/Synopsis_00.jpg')";
 
-    for (var i = 0; i < indicator[0].children.length; i++) {
-        indicator[0].children[i].classList.remove("active");
+    for (var i = 0; i < synopsisInd.length; i++) {
+        synopsisInd[i].classList.remove("active");
     }
-    indicator[0].children[0].classList.add("active");
+
+    synopsisInd[0].classList.add("active");
 } //Synopsis 페이지 구현
 
 function castingOnOff() {
     this.classList.toggle("active"); // 화살표
-    indicator[1].querySelector("div").classList.toggle("active"); // 배우 리스트
+    catingInds.classList.toggle("active"); // 배우 리스트
 } //casting on/off 버튼
 
 function catingImg() {
@@ -327,7 +332,7 @@ function scrolling(e) {
         section[wheelIndex].classList.add("active");
 
         menuButton.classList.remove("active");
-        menu.classList.remove("active");
+        menus.classList.remove("active");
 
         for (var i = 0; i < synopsisList.length; i++) {
             synopsisList[i].classList.remove("active");

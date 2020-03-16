@@ -1,0 +1,53 @@
+{
+    "casting": [
+        {
+            "title": "Christian Bale as Bruce Wayne / Batman",
+            "name": "Christian Bale",
+            "part": "as Bruce Wayne / Batman",
+            "explanation": "A billionaire socialite who, after witnessing his parents' death in a mugging at age 8, travels the world for seven years before returning home to operate as a bat-masked vigilante hailed as Gotham City's 'Dark Knight', using fear against the city's criminal underworld at night.",
+            "img": "Casting_00.jpg"
+        },
+        {
+            "title": "Heath Ledger as The Joker",
+            "name": "Heath Ledger",
+            "part": "as The Joker",
+            "explanation": "A psychopathic illegalist mastermind portraying himself as an 'agent of chaos', who rises from the criminal underworld by thrusting Gotham into anarchy and drawing Batman ever closer to crossing the fine line between heroism and vigilantism. Before Ledger was cast in July 2006, Paul Bettany, Lachy Hulme, Adrien Brody, Steve Carell, and Robin Williams publicly expressed interest in it.",
+            "img": "Casting_01.jpg"
+        },
+        {
+            "title": "Gary Oldman as James Gordon",
+            "name": "Gary Oldman",
+            "part": "as James Gordon",
+            "explanation": "A lieutenant in the Gotham City Police Department and one of the city's few honest police officers, who forms a tenuous, unofficial alliance with Batman and Dent and is given the position of Police Commissioner by the city's mayor following the recent commissioner's assassination.",
+            "img": "Casting_02.jpg"
+        },
+        {
+            "title": "Aaron Eckhart as Harvey Dent",
+            "name": "Aaron Eckhart",
+            "part": "Harvey Dent",
+            "explanation": "The district attorney hailed as Gotham's 'White Knight', whose campaign against the criminal underworld leaves half of his face disfigured, turning him into a murderer with a split-personality bent on revenge. Nolan and David S. Goyer had originally considered using Dent in Batman Begins, but they replaced him with the new character Rachel Dawes when they realized they 'couldn't do him justice'.",
+            "img": "Casting_03.jpg"
+        },
+        {
+            "title": "Anne Hathaway as Selina Kyle / Catwoman",
+            "name": "Anne Hathaway",
+            "part": "as Selina Kyle / Catwoman",
+            "explanation": "A professional cat burglar, grifter, and femme fatale who establishes a playful, teasing relationship with Wayne that 'takes some of the somberness away from his character', and pursues a 'clean slate' (a computer program rumored to be able to erase a person's criminal history) when she crosses paths with both Wayne and Batman.",
+            "img": "Casting_04.jpg"
+        },
+        {
+            "title": "Michael Caine as Alfred Pennyworth",
+            "name": "Michael Caine",
+            "part": "as Alfred Pennyworth",
+            "explanation": "Bruce's trusted butler and confidant, who supplies useful advice to Bruce and likeness as a father figure, leading him to be labeled 'Batman's batman'.",
+            "img": "Casting_05.jpg"
+        },
+        {
+            "title": "Morgan Freeman as Lucius Fox",
+            "name": "Morgan Freeman",
+            "part": "as Lucius Fox",
+            "explanation": "The CEO and later Executive Vice President of Wayne Enterprises, who runs the company on Wayne's behalf and serves as his armorer for the Batsuit, providing him with high-tech equipment and discreetly developing cutting-edge technology and weaponry, even as Wayne Enterprises starts losing money.",
+            "img": "Casting_06.jpg"
+        }
+    ]
+}
