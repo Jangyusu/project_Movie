@@ -5,11 +5,13 @@ var menuButton = document.querySelector(".menu_button"),
     director = document.querySelector(".director"),
     scrollDown = document.querySelector(".scroll"),
     section = document.querySelectorAll("section"),
+    video = document.querySelector(".video"),
     footer = document.querySelector("footer"),
     music = footer.querySelector(".music"),
     musicTitle = footer.querySelector(".music p"),
     indicator = document.querySelectorAll(".indicator"),
-    video = document.querySelector(".video"),
+    photos = document.querySelectorAll(".photo"),
+    photoView = document.querySelector(".photo_view"),
     synopsisIndex = 0,
     castingIndex = 0,
     trailerIndex = 0,
@@ -56,6 +58,9 @@ for (var i = 0; i < section[4].querySelectorAll("div").length; i++) {
 
 music.addEventListener("click", musicInPlay); //음악 플레이어
 
+photos.forEach(photo => photo.addEventListener("click", visiblePhoto)); //선택한 사진 보기
+photoView.addEventListener("click", hiddenPhoto); //사진 닫기
+
 function getIndex(target) {
     var i = 0;
 
@@ -82,7 +87,7 @@ function start() {
         scrollDown.querySelector("i").classList.add("active");
         footer.classList.add("active");
         section[4].querySelector("i").click();
-    }, 10);
+    }, 1500);
 } //시작 버튼
 
 function menuToggle() {
@@ -296,4 +301,13 @@ function musicInPlay() {
         section[i].classList.remove("active");
     }
     section[4].classList.add("active");
+}
+
+function visiblePhoto(e) {
+    photoView.src = e.target.src;
+    photoView.classList.add("active");
+}
+
+function hiddenPhoto() {
+    photoView.classList.remove("active");
 }
