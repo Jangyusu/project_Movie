@@ -548,7 +548,6 @@ section:nth-of-type(5) ul li div::after {
     border-radius: 100%;
     z-index: -1;
     opacity: .7;
-    visibility: visible;
 }
 section:nth-of-type(5) ul li div.active::after {
     animation: bounce 1.5s infinite;

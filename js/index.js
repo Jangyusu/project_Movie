@@ -3,8 +3,9 @@ var menuButton = document.querySelector(".menu_button"),
     startButton = document.querySelector(".start"),
     header = document.querySelector("header"),
     director = document.querySelector(".director"),
-    scrollDown = document.querySelector(".scroll"),
     section = document.querySelectorAll("section"),
+    synopsisList = section[1].querySelectorAll("article"),
+    scrollDown = document.querySelector(".scroll"),
     video = document.querySelector(".video"),
     footer = document.querySelector("footer"),
     music = footer.querySelector(".music"),
@@ -12,15 +13,19 @@ var menuButton = document.querySelector(".menu_button"),
     indicator = document.querySelectorAll(".indicator"),
     photos = document.querySelectorAll(".photo"),
     photoView = document.querySelector(".photo_view"),
+    wheelIndex = 0,
     synopsisIndex = 0,
     castingIndex = 0,
     trailerIndex = 0,
     startTime,
     sec,
-    min;
+    min,
+    wheelDelay = true;
 
 startButton.addEventListener("click", start); //시작 버튼
 menuButton.addEventListener("click", menuToggle); //메뉴 토글
+
+window.addEventListener("mousewheel", scrolling); //마우스 휠
 
 for (var i = 0; i < menu.children.length; i++) {
     menu.children[i].addEventListener("click", menuSelect);
@@ -87,7 +92,7 @@ function start() {
         scrollDown.querySelector("i").classList.add("active");
         footer.classList.add("active");
         section[4].querySelector("i").click();
-    }, 1500);
+    }, 10);
 } //시작 버튼
 
 function menuToggle() {
@@ -101,17 +106,13 @@ function menuToggle() {
 function menuSelect() {
     var pressedIndex = getIndex(event.target);
 
-    for (var i = 0; i < section.length; i++) {
-        section[i].classList.remove("active");
-    }
+    section.forEach(section => section.classList.remove("active"));
     section[pressedIndex].classList.add("active");
 
     menuButton.classList.toggle("active");
     menu.classList.toggle("active");
 
-    for (var i = 0; i < section[1].querySelectorAll("article").length; i++) {
-        section[1].querySelectorAll("article")[i].classList.remove("active");
-    }
+    synopsisList.forEach(synopsisList => synopsisList.classList.remove("active"));
 
     for (var i = 0; i < section[2].querySelectorAll("article").length; i++) {
         section[2].querySelectorAll("article")[i].classList.remove("active");
@@ -128,17 +129,17 @@ function synopsisIndicator() {
 
     for (var i = 0; i < indicator[0].children.length; i++) {
         indicator[0].children[i].classList.remove("active");
-        section[1].querySelectorAll("article")[i].classList.remove("active");
+        synopsisList[i].classList.remove("active");
     }
 
     indicator[0].children[pressedIndex].classList.add("active");
-    section[1].querySelectorAll("article")[pressedIndex].classList.add("active");
+    synopsisList[pressedIndex].classList.add("active");
 
     section[1].style = "background-image: url('img/Synopsis_0" + pressedIndex + ".jpg')";
 } //Synopsis indicator 버튼
 
 function synopsisImg() {
-    section[1].querySelectorAll("article")[0].classList.add("active");
+    synopsisList[0].classList.add("active");
     section[1].style = "background-image: url('img/Synopsis_00.jpg')";
 
     for (var i = 0; i < indicator[0].children.length; i++) {
@@ -310,4 +311,39 @@ function visiblePhoto(e) {
 
 function hiddenPhoto() {
     photoView.classList.remove("active");
+}
+
+function scrolling(e) {
+    if (wheelDelay == true) {
+        wheelDelay = false;
+
+        if (e.deltaY > 0 && 0 <= wheelIndex && wheelIndex < section.length - 1) {
+            wheelIndex++;
+        } else if (e.deltaY < 0 && 0 < wheelIndex && wheelIndex <= section.length) {
+            wheelIndex--;
+        }
+
+        section.forEach(section => section.classList.remove("active"));
+        section[wheelIndex].classList.add("active");
+
+        menuButton.classList.remove("active");
+        menu.classList.remove("active");
+
+        for (var i = 0; i < synopsisList.length; i++) {
+            synopsisList[i].classList.remove("active");
+        }
+
+        for (var i = 0; i < section[2].querySelectorAll("article").length; i++) {
+            section[2].querySelectorAll("article")[i].classList.remove("active");
+        }
+
+        for (var i = 0; i < video.querySelectorAll("div").length; i++) {
+            video.querySelectorAll("div")[i].classList.remove("active");
+        }
+        trailerIndex = 0;
+
+        setTimeout(function() {
+            wheelDelay = true;
+        }, 1200);
+    }
 }
