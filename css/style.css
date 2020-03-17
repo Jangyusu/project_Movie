@@ -202,23 +202,23 @@ section:nth-of-type(1) p.active {
     opacity: 1;
     letter-spacing: 2rem;
 }
-section:nth-of-type(1) .scroll {
+section:nth-of-type(1) .scroll_please {
     display: flex;
     flex-direction: column;
     opacity: 0;
     transform: translateY(0);
     transition: 1s;
 }
-section:nth-of-type(1) .scroll.active {
+section:nth-of-type(1) .scroll_please.active {
     opacity: .5;
 }
-section:nth-of-type(1) .scroll span {
+section:nth-of-type(1) .scroll_please .scroll_please_title {
     text-transform: none;
     font-weight: 300;
     letter-spacing: 0.3rem;
     margin-bottom: 1vh;
 }
-section:nth-of-type(1) .scroll i {
+section:nth-of-type(1) .scroll_please .scroll_please_icon {
     width: 30px;
     height: 30px;
     margin: 0 auto;
@@ -444,12 +444,12 @@ section:nth-of-type(4)::before {
     opacity: .5;
     z-index: -1;
 }
-section:nth-of-type(4) .trailer_control {
+section:nth-of-type(4) i {
     font-size: 2rem;
     opacity: 0.3;
     transition: 1s;
 }
-section:nth-of-type(4) .trailer_control:hover {
+section:nth-of-type(4) i:hover {
     cursor: pointer;
     transform: scale(1.2);
     opacity: 1;
