@@ -1,5 +1,6 @@
 window.onload = function () {
     // start
+
     var startButton = document.querySelector(".start"),
         // header
         header = document.querySelector("header"),
@@ -56,8 +57,12 @@ window.onload = function () {
         playingMusicTitle = footer.querySelector(".playing_music_title");
 
 
+    document.querySelector('.loading_img').remove(); // 로딩이 완료된 이미지 태그 제거
+    start();
+
+
     window.addEventListener("mousewheel", scrolling); //마우스 휠
-    startButton.addEventListener("click", start); //시작 버튼
+    // startButton.addEventListener("click", start); //시작 버튼
     menuButton.addEventListener("click", menuToggle); //메뉴 토글
     menu.forEach(menu => menu.addEventListener("click", menuSelect)); //메뉴 선택
 
