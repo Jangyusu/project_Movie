@@ -117,7 +117,7 @@ function menuSelect() {
     castingList.forEach(castingList => castingList.classList.remove("active"));
     video.forEach(video => video.classList.remove("active"));
 
-    photoView.classList.remove("acitve");
+    photoView.classList.remove("active");
     trailerIndex = 0;
 } //메뉴 선택
 

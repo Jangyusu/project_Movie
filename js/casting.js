@@ -3,7 +3,7 @@ menu[2].addEventListener("click", catingImg); //casting img 변경
 
 castingInd.forEach(castingInd => castingInd.addEventListener("click", castingIndicator)); //Casting indicator 버튼
 
-function castingOnOff() {
+function castingOnOff() {    
     this.classList.toggle("active"); // 화살표
     castingInds.classList.toggle("active"); // 배우 리스트
 } //casting on/off 버튼
