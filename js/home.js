@@ -60,7 +60,6 @@ var startButton = document.querySelector(".start"),
     playingMusic = footer.querySelector(".playing_music"),
     playingMusicTitle = footer.querySelector(".playing_music_title");
 
-
 window.addEventListener("mousewheel", scrolling); //마우스 휠
 startButton.addEventListener("click", start); //시작 버튼
 menuButton.addEventListener("click", menuToggle); //메뉴 토글
