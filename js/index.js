@@ -1,4 +1,4 @@
-window.onload = function () {
+window.onload = function () { // 로드가 완료되면 실행
     // start
 
     var startButton = document.querySelector(".start"),
@@ -58,7 +58,7 @@ window.onload = function () {
 
 
     document.querySelector('.loading_img').remove(); // 로딩이 완료된 이미지 태그 제거
-    start();
+    start(); //로딩이 완료되면 웹사이트 실행
 
 
     window.addEventListener("mousewheel", scrolling); //마우스 휠
@@ -116,8 +116,7 @@ window.onload = function () {
             scrollPlease.classList.add("active");
             scrollPleaseIco.classList.add("active");
             footer.classList.add("active");
-            playMusic[0].click();
-        }, 10);
+        }, 100);
     } //시작 버튼
 
     function menuToggle() {
@@ -141,6 +140,8 @@ window.onload = function () {
 
         castingList.forEach(castingList => castingList.classList.remove("active"));
         video.forEach(video => video.classList.remove("active"));
+
+        photoView.classList.remove("active");
 
         trailerIndex = 0;
     } //메뉴 선택
