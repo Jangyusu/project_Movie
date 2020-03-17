@@ -1,66 +1,61 @@
-// start
-var startButton = document.querySelector(".start"),
-    // header
-    header = document.querySelector("header"),
-    // menu
-    menuButton = document.querySelector(".menu_button"),
-    menus = document.querySelector(".menus"),
-    menu = document.querySelectorAll(".menu"),
-    wheelIndex = 0,
-    wheelDelay = true,
-    section = document.querySelectorAll("section"),
-    // home
-    home = document.querySelector(".home"),
-    homeTitle = home.querySelector(".home_title"),
-    director = home.querySelector(".director"),
-    directorTitle = director.querySelector(".director_title"),
-    directorName = director.querySelector(".director_name"),
-    scrollPlease = home.querySelector(".scroll_please"),
-    scrollPleaseTit = scrollPlease.querySelector(".scroll_please_title"),
-    scrollPleaseIco = scrollPlease.querySelector(".scroll_please_icon"),
-    // synopsis
-    synopsis = document.querySelector(".synopsis"),
-    synopsisInds = synopsis.querySelector(".synopsis_indicators"),
-    synopsisInd = synopsis.querySelectorAll(".synopsis_indicator"),
-    synopsisList = synopsis.querySelectorAll("article"),
-    synopsisIndex = 0,
-    // casting
-    casting = document.querySelector(".casting"),
-    castingList = casting.querySelectorAll("article"),
-    castingCon = casting.querySelector(".casting_control"),
-    castingInds = casting.querySelector(".casting_indicators"),
-    castingInd = casting.querySelectorAll(".casting_indicator"),
-    castingIndex = 0,
-    // trailer
-    trailer = document.querySelector(".trailer"),
-    tarilerPrev = trailer.querySelector(".tariler_prev"),
-    tarilerNext = trailer.querySelector(".tariler_next"),
-    videos = trailer.querySelector(".videos"),
-    video = trailer.querySelectorAll(".video"),
-    firstVideo = trailer.querySelector(".video"),
-    trailerIndex = 0,
-    // ost
-    ost = document.querySelector(".ost"),
-    ostList = ost.querySelectorAll(".ost_list"),
-    music = ost.querySelectorAll(".music"),
-    musicControls = ost.querySelectorAll("i"),
-    musicControl = ost.querySelectorAll(".music_control"),
-    musicTitle = ost.querySelectorAll(".music_title"),
-    playMusic = ost.querySelectorAll(".play_music"),
-    stopMusic = ost.querySelectorAll(".stop_music"),
-    startTime,
-    sec,
-    min,
-    // gallery
-    gallery = document.querySelector(".gallery"),
-    photos = gallery.querySelectorAll(".photo"),
-    photoView = gallery.querySelector(".photo_view"),
-    // footer
-    footer = document.querySelector("footer"),
-    playingMusic = footer.querySelector(".playing_music"),
-    playingMusicTitle = footer.querySelector(".playing_music_title");
+window.onload = function () {
+    // start
+    var startButton = document.querySelector(".start"),
+        // header
+        header = document.querySelector("header"),
+        // menu
+        menuButton = document.querySelector(".menu_button"),
+        menus = document.querySelector(".menus"),
+        menu = document.querySelectorAll(".menu"),
+        wheelIndex = 0,
+        wheelDelay = true,
+        section = document.querySelectorAll("section"),
+        // home
+        home = document.querySelector(".home"),
+        homeTitle = home.querySelector(".home_title"),
+        director = home.querySelector(".director"),
+        directorTitle = director.querySelector(".director_title"),
+        directorName = director.querySelector(".director_name"),
+        scrollPlease = home.querySelector(".scroll_please"),
+        scrollPleaseIco = scrollPlease.querySelector(".scroll_please_icon"),
+        // synopsis
+        synopsis = document.querySelector(".synopsis"),
+        synopsisInd = synopsis.querySelectorAll(".synopsis_indicator"),
+        synopsisList = synopsis.querySelectorAll("article"),
+        // casting
+        casting = document.querySelector(".casting"),
+        castingList = casting.querySelectorAll("article"),
+        castingCon = casting.querySelector(".casting_control"),
+        castingInds = casting.querySelector(".casting_indicators"),
+        castingInd = casting.querySelectorAll(".casting_indicator"),
+        // trailer
+        trailer = document.querySelector(".trailer"),
+        tarilerPrev = trailer.querySelector(".tariler_prev"),
+        tarilerNext = trailer.querySelector(".tariler_next"),
+        videos = trailer.querySelector(".videos"),
+        video = trailer.querySelectorAll(".video"),
+        firstVideo = trailer.querySelector(".video"),
+        trailerIndex = 0,
+        // ost
+        ost = document.querySelector(".ost"),
+        music = ost.querySelectorAll(".music"),
+        musicControls = ost.querySelectorAll("i"),
+        musicControl = ost.querySelectorAll(".music_control"),
+        playMusic = ost.querySelectorAll(".play_music"),
+        stopMusic = ost.querySelectorAll(".stop_music"),
+        startTime,
+        sec,
+        min,
+        // gallery
+        gallery = document.querySelector(".gallery"),
+        photos = gallery.querySelectorAll(".photo"),
+        photoView = gallery.querySelector(".photo_view"),
+        // footer
+        footer = document.querySelector("footer"),
+        playingMusic = footer.querySelector(".playing_music"),
+        playingMusicTitle = footer.querySelector(".playing_music_title");
 
-window.addEventListener("load", function () {
+
     window.addEventListener("mousewheel", scrolling); //마우스 휠
     startButton.addEventListener("click", start); //시작 버튼
     menuButton.addEventListener("click", menuToggle); //메뉴 토글
@@ -366,4 +361,5 @@ window.addEventListener("load", function () {
             }, 1200);
         }
     }
-})
+}
+

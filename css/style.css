@@ -693,6 +693,12 @@ footer .sns a:hover {
 }
 
 
+/* loading_img */
+.loading_img {
+    display: none;
+}
+
+
 /* line */
 .line {
     margin: 1.5% 0;
