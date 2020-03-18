@@ -8,8 +8,6 @@ window.onload = function () { // 로드가 완료되면 실행
         menuButton = document.querySelector(".menu_button"),
         menus = document.querySelector(".menus"),
         menu = document.querySelectorAll(".menu"),
-        wheelIndex = 0,
-        wheelDelay = true,
         section = document.querySelectorAll("section"),
         // home
         home = document.querySelector(".home"),
@@ -37,11 +35,15 @@ window.onload = function () { // 로드가 완료되면 실행
         trailerIndex = 0,
         // ost
         ost = document.querySelector(".ost"),
+        ostList = ost.querySelectorAll(".ost_list"),
         music = ost.querySelectorAll(".music"),
         musicControls = ost.querySelectorAll("i"),
         musicControl = ost.querySelectorAll(".music_control"),
         playMusic = ost.querySelectorAll(".play_music"),
         stopMusic = ost.querySelectorAll(".stop_music"),
+        ostPrev = ost.querySelectorAll(".ost_indicator i")[0],
+        ostNext = ost.querySelectorAll(".ost_indicator i")[1],
+        ostIndex = 0,
         startTime,
         sec,
         min,
@@ -55,36 +57,49 @@ window.onload = function () { // 로드가 완료되면 실행
         playingMusicTitle = footer.querySelector(".playing_music_title");
 
 
+
+
+
+
+
+
+
+
     document.querySelector('.loading_img').remove(); // 로딩이 완료된 이미지 태그 제거
     start(); //로딩이 완료되면 웹사이트 실행
 
     menuButton.addEventListener("click", menuToggle); //메뉴 토글
     menu.forEach(menu => menu.addEventListener("click", menuSelect)); //메뉴 선택
 
+
     synopsisInd.forEach(synopsisInd => synopsisInd.addEventListener("click", synopsisIndicator)); //synopsis indicator 버튼
     menu[1].addEventListener("click", synopsisImg); //synopsis img 변경
 
+
     castingCon.addEventListener("click", castingOnOff); //casting on/off 버튼
     menu[2].addEventListener("click", catingImg); //casting img 변경
-
     castingInd.forEach(castingInd => castingInd.addEventListener("click", castingIndicator)); //Casting indicator 버튼
+
 
     menu[3].addEventListener("click", function () {
         firstVideo.classList.add("active");
     }); //Trailer 첫화면
-
     tarilerPrev.addEventListener("click", prevTrailer); //Trailer prev 버튼
     tarilerNext.addEventListener("click", nextTrailer); //trailer next 버튼
 
+    document.querySelectorAll("menu")[4].addEventListener("click", ostStart) //ost 첫화면
     for (var i = 0; i < music.length; i++) {
         playMusic[i].addEventListener("click", playPause); //음악 실행 및 일시정지 버튼
         stopMusic[i].addEventListener("click", stop); //음악 정지 버튼
     } //Ost 음악 재생 및 정지 버튼
-
+    ostPrev.addEventListener("click", prevOst); //이전 ost버튼
+    ostNext.addEventListener("click", nextOst); //다음 ost버튼
     playingMusic.addEventListener("click", musicInPlay); //음악 플레이어
+
 
     photos.forEach(photo => photo.addEventListener("click", visiblePhoto)); //선택한 사진 보기
     photoView.addEventListener("click", hiddenPhoto); //사진 닫기
+
 
     function getIndex(target) {
         var i = 0;
@@ -133,6 +148,10 @@ window.onload = function () { // 로드가 완료되면 실행
 
         castingList.forEach(castingList => castingList.classList.remove("active"));
         video.forEach(video => video.classList.remove("active"));
+
+        for (var i = 0; i < ostList.length; i++) {
+            ostList[i].classList.remove("active");
+        } //모든 ostList active클래스 제거
 
         photoView.classList.remove("active");
 
@@ -313,6 +332,38 @@ window.onload = function () { // 로드가 완료되면 실행
         playingMusic.classList.remove("active"); //노래 정지시 헤드폰 숨김
     } //Ost 정지 버튼
 
+    function prevOst() { //이전 ost
+        if (ostIndex == 0) {
+            ostIndex = 2
+        } else {
+            ostIndex--;
+        } //ostIndex 값 변경
+
+        for (var i = 0; i < ostList.length; i++) {
+            ostList[i].classList.remove("active");
+        } //모든 ostList active클래스 제거
+
+        ostList[ostIndex].classList.add("active"); //이전 ostList에 active클래스 추가
+    }
+
+    function nextOst() { //다음 ost
+        if (ostIndex == 2) {
+            ostIndex = 0
+        } else {
+            ostIndex++;
+        } //ostIndex 값 변경
+
+        for (var i = 0; i < ostList.length; i++) {
+            ostList[i].classList.remove("active");
+        } //모든 ostList active클래스 제거
+
+        ostList[ostIndex].classList.add("active"); //다음 ostList에 active클래스 추가
+    }
+
+    function ostStart() { //모바일 ost메뉴 선택
+        ostList[0].classList.add("active");
+    }
+
     function musicInPlay() {
         for (var i = 0; i < section.length; i++) {
             section[i].classList.remove("active");
@@ -329,4 +380,3 @@ window.onload = function () { // 로드가 완료되면 실행
         photoView.classList.remove("active");
     }
 }
-
