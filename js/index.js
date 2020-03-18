@@ -87,7 +87,7 @@ window.onload = function () { // 로드가 완료되면 실행
     tarilerPrev.addEventListener("click", prevTrailer); //Trailer prev 버튼
     tarilerNext.addEventListener("click", nextTrailer); //trailer next 버튼
 
-    document.querySelectorAll("menu")[4].addEventListener("click", ostStart) //ost 첫화면
+    menu[4].addEventListener("click", ostStart) //ost 첫화면
     for (var i = 0; i < music.length; i++) {
         playMusic[i].addEventListener("click", playPause); //음악 실행 및 일시정지 버튼
         stopMusic[i].addEventListener("click", stop); //음악 정지 버튼
