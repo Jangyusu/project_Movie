@@ -17,8 +17,6 @@ window.onload = function () { // 로드가 완료되면 실행
         director = home.querySelector(".director"),
         directorTitle = director.querySelector(".director_title"),
         directorName = director.querySelector(".director_name"),
-        scrollPlease = home.querySelector(".scroll_please"),
-        scrollPleaseIco = scrollPlease.querySelector(".scroll_please_icon"),
         // synopsis
         synopsis = document.querySelector(".synopsis"),
         synopsisInd = synopsis.querySelectorAll(".synopsis_indicator"),
@@ -60,9 +58,6 @@ window.onload = function () { // 로드가 완료되면 실행
     document.querySelector('.loading_img').remove(); // 로딩이 완료된 이미지 태그 제거
     start(); //로딩이 완료되면 웹사이트 실행
 
-
-    window.addEventListener("mousewheel", scrolling); //마우스 휠
-    // startButton.addEventListener("click", start); //시작 버튼
     menuButton.addEventListener("click", menuToggle); //메뉴 토글
     menu.forEach(menu => menu.addEventListener("click", menuSelect)); //메뉴 선택
 
@@ -113,8 +108,6 @@ window.onload = function () { // 로드가 완료되면 실행
             director.classList.add("active");
             directorTitle.classList.add("active");
             directorName.classList.add("active");
-            scrollPlease.classList.add("active");
-            scrollPleaseIco.classList.add("active");
             footer.classList.add("active");
         }, 100);
     } //시작 버튼
@@ -334,38 +327,6 @@ window.onload = function () { // 로드가 완료되면 실행
 
     function hiddenPhoto() {
         photoView.classList.remove("active");
-    }
-
-    function scrolling(e) {
-        if (wheelDelay == true) {
-            wheelDelay = false;
-
-            if (e.deltaY > 0 && 0 <= wheelIndex && wheelIndex < section.length - 1) {
-                wheelIndex++;
-            } else if (e.deltaY < 0 && 0 < wheelIndex && wheelIndex <= section.length) {
-                wheelIndex--;
-            }
-
-            section.forEach(section => section.classList.remove("active"));
-            section[wheelIndex].classList.add("active");
-
-            menuButton.classList.remove("active");
-            menus.classList.remove("active");
-
-            for (var i = 0; i < synopsisList.length; i++) {
-                synopsisList[i].classList.remove("active");
-            }
-            for (var i = 0; i < castingList.length; i++) {
-                castingList[i].classList.remove("active");
-            }
-
-            video.forEach(video => video.classList.remove("active"));
-            trailerIndex = 0;
-
-            setTimeout(function () {
-                wheelDelay = true;
-            }, 1200);
-        }
     }
 }
 
