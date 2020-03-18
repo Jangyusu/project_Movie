@@ -8,6 +8,9 @@ window.onload = function () { // 로드가 완료되면 실행
         menuButton = document.querySelector(".menu_button"),
         menus = document.querySelector(".menus"),
         menu = document.querySelectorAll(".menu"),
+        burgerMenu = document.querySelector(".burger_menu"),
+        mobileMenus = document.querySelector(".mobile_menus"),
+        mobileMenu = document.querySelectorAll(".mobile_menu"),
         section = document.querySelectorAll("section"),
         // home
         home = document.querySelector(".home"),
@@ -72,22 +75,34 @@ window.onload = function () { // 로드가 완료되면 실행
     menu.forEach(menu => menu.addEventListener("click", menuSelect)); //메뉴 선택
 
 
+    burgerMenu.addEventListener("click", mobileMenuToggle) //burger메뉴 토글
+    for (var i = 0; i < mobileMenu.length; i++) {
+        mobileMenu[i].addEventListener("click", mobileMenuSelect);
+    }
+
+
     synopsisInd.forEach(synopsisInd => synopsisInd.addEventListener("click", synopsisIndicator)); //synopsis indicator 버튼
     menu[1].addEventListener("click", synopsisImg); //synopsis img 변경
+    mobileMenu[1].addEventListener("click", synopsisImg); //synopsis img 변경
 
 
     castingCon.addEventListener("click", castingOnOff); //casting on/off 버튼
     menu[2].addEventListener("click", catingImg); //casting img 변경
+    mobileMenu[2].addEventListener("click", catingImg); //casting img 변경
     castingInd.forEach(castingInd => castingInd.addEventListener("click", castingIndicator)); //Casting indicator 버튼
 
 
     menu[3].addEventListener("click", function () {
         firstVideo.classList.add("active");
     }); //Trailer 첫화면
+    mobileMenu[3].addEventListener("click", function () {
+        firstVideo.classList.add("active");
+    }); //Trailer 첫화면
     tarilerPrev.addEventListener("click", prevTrailer); //Trailer prev 버튼
     tarilerNext.addEventListener("click", nextTrailer); //trailer next 버튼
 
     menu[4].addEventListener("click", ostStart) //ost 첫화면
+    mobileMenu[4].addEventListener("click", ostStart) //ost 첫화면
     for (var i = 0; i < music.length; i++) {
         playMusic[i].addEventListener("click", playPause); //음악 실행 및 일시정지 버튼
         stopMusic[i].addEventListener("click", stop); //음악 정지 버튼
@@ -135,6 +150,13 @@ window.onload = function () { // 로드가 완료되면 실행
         menuButton.classList.remove("flash");
     } //메뉴 토글
 
+    function mobileMenuToggle() {
+        event.preventDefault();
+
+        burgerMenu.classList.toggle("active");
+        mobileMenus.classList.toggle("active");
+    } //berger메뉴 토글
+
     function menuSelect() {
         var pressedIndex = getIndex(event.target);
 
@@ -157,6 +179,29 @@ window.onload = function () { // 로드가 완료되면 실행
 
         trailerIndex = 0;
     } //메뉴 선택
+
+    function mobileMenuSelect() {
+        var pressedIndex = getIndex(event.target);
+
+        section.forEach(section => section.classList.remove("active"));
+        section[pressedIndex].classList.add("active");
+
+        burgerMenu.classList.toggle("active");
+        mobileMenus.classList.toggle("active");
+
+        synopsisList.forEach(synopsisList => synopsisList.classList.remove("active"));
+
+        castingList.forEach(castingList => castingList.classList.remove("active"));
+        video.forEach(video => video.classList.remove("active"));
+
+        for (var i = 0; i < ostList.length; i++) {
+            ostList[i].classList.remove("active");
+        } //모든 ostList active클래스 제거
+
+        photoView.classList.remove("active");
+
+        trailerIndex = 0;
+    }
 
     function synopsisIndicator() {
         var pressedIndex = getIndex(event.target);

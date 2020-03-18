@@ -100,6 +100,9 @@ header .menus .menu:hover::before {
     opacity: 1;
     transition: .5s;
 }
+header .menu_m {
+    display: none;
+}
 
 
 /* section */
@@ -824,6 +827,9 @@ footer .sns a:hover {
         opacity: 1;
         transition: .5s;
     }
+    header .menu_m {
+        display: none;
+    }
 
 
     /* section */
@@ -1493,6 +1499,7 @@ footer .sns a:hover {
         left: 50%;
         top: 50px;
         transform: translateX(-50%);
+        display: none;
     }
     header .menu_button {
         position: absolute;
@@ -1502,7 +1509,7 @@ footer .sns a:hover {
         transition: 1s;
         z-index: 9999;
         opacity: .3;
-        /* display: none; */
+        display: none;
     }
     header .menu_button.flash {
         animation: flash 1s infinite;
@@ -1519,7 +1526,7 @@ footer .sns a:hover {
         top: 50%;
         transform: translateX(-105%) translateY(-50%);
         transition: 1s;
-        /* display: none; */
+        display: none;
     }
     header .menus.active {
         transform: translateX(0) translateY(-50%);
@@ -1550,6 +1557,67 @@ footer .sns a:hover {
     header .menus .menu:hover::before {
         opacity: 1;
         transition: .5s;
+    }
+    header .menu_m {
+        display: block;
+        margin-top: 30px;
+    }
+    header .menu_m a {
+        cursor: pointer;
+        width: 40px;
+        height: 30px;
+        position: relative;
+        margin-bottom: 10px;
+    }
+    header .menu_m a span {
+        width: 100%;
+        height: 4px;
+        background: #fff;
+        border-radius: 4px;
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        transition: .5s;        
+    }
+    header .menu_m a span:nth-of-type(1) {
+        top: 0;
+    }
+    header .menu_m a span:nth-of-type(2) {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    header .menu_m a span:nth-of-type(3) {
+        bottom: 0;
+    }
+    header .menu_m a.active span:nth-of-type(1) {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(135deg);
+    }
+    header .menu_m a.active span:nth-of-type(2) {
+        opacity: 0;
+        visibility: hidden;
+    }
+    header .menu_m a.active span:nth-of-type(3) {
+        left: 50%;
+        bottom: 50%;
+        transform: translate(-50%, 50%) rotate(-135deg);
+    }
+    header .menu_m ul {
+        cursor: pointer;
+        transform: translateY(-10px);
+        opacity: 0;
+        visibility: hidden;
+        transition: 1s;
+    }
+    header .menu_m ul.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    header .menu_m ul li {
+        text-transform: uppercase;
+        line-height: 4rem;
     }
 
 
