@@ -56,8 +56,12 @@ window.onload = function () { // 로드가 완료되면 실행
         playingMusic = footer.querySelector(".playing_music"),
         playingMusicTitle = footer.querySelector(".playing_music_title"),
         // touch
-        touchStart,
-        touchEnd;
+        ostTouchStart,
+        ostTouchEnd,
+        trailerTouchStart,
+        trailerTouchEnd;
+
+
 
 
 
@@ -93,6 +97,9 @@ window.onload = function () { // 로드가 완료되면 실행
     }); //mobile Trailer 첫화면
     tarilerPrev.addEventListener("click", prevTrailer); //Trailer prev 버튼
     tarilerNext.addEventListener("click", nextTrailer); //trailer next 버튼
+    trailer.addEventListener("touchstart", trailerStartTouch); //trailer 터치가 시작했을 때
+    trailer.addEventListener("touchend", trailerEndTouch); //trailer 터치가 끝났을 때 이전 혹은 다음 trailer 보기
+
 
     menu[4].addEventListener("click", ostStart) //ost 첫화면
     mobileMenu[4].addEventListener("click", ostStart) //mobile ost 첫화면
@@ -102,8 +109,8 @@ window.onload = function () { // 로드가 완료되면 실행
     } //Ost 음악 재생 및 정지 버튼
     ostPrev.addEventListener("click", prevOst); //이전 ost버튼
     ostNext.addEventListener("click", nextOst); //다음 ost버튼
-    ost.addEventListener("touchstart", startTouch) // ost 터치가 시작했을 때
-    ost.addEventListener("touchend", endTouch) // ost 터치가 끝났을 때 이전곡 혹은 다음곡 보기
+    ost.addEventListener("touchstart", ostStartTouch) // ost 터치가 시작했을 때
+    ost.addEventListener("touchend", ostEndTouch) // ost 터치가 끝났을 때 이전곡 혹은 다음곡 보기
     playingMusic.addEventListener("click", musicInPlay); //음악 플레이어
 
 
@@ -421,21 +428,39 @@ window.onload = function () { // 로드가 완료되면 실행
         photoView.classList.remove("active");
     }
 
-    function startTouch(e) {
-        touchStart = e.changedTouches[0].screenX; //터치가 시작했을 때 screenX값
+    function ostStartTouch(e) {
+        ostTouchStart = e.changedTouches[0].screenX; //ost 터치가 시작했을 때 screenX값
     } //터치가 시작했을 때
 
-    function endTouch(e) {
-        touchEnd = e.changedTouches[0].screenX; //터치가 끝났을 때 screenX값
+    function ostEndTouch(e) {
+        ostTouchEnd = e.changedTouches[0].screenX; //ost 터치가 끝났을 때 screenX값
 
-        if (touchStart - touchEnd <= -100) {
+        if (ostTouchStart - ostTouchEnd <= -100) {
             //왼쪽에서 오른쪽으로 100px 이상 터치
 
             prevOst(); //이전곡
-        } else if (touchStart - touchEnd >= 100) {
+        } else if (ostTouchStart - ostTouchEnd >= 100) {
             //오른쪽에서 왼쪽으로 100px 이상 터치
 
             nextOst(); //다음곡
         }
     } //터치가 끝났을 때
+
+    function trailerStartTouch(e) {
+        trailerTouchStart = e.changedTouches[0].screenX; //trailer 터치가 시작했을 때 screenX값
+    }
+
+    function trailerEndTouch(e) {
+        trailerTouchEnd = e.changedTouches[0].screenX; //trailer 터치가 시작했을 때 screenX값
+
+        if (trailerTouchStart - trailerTouchEnd <= -100) {
+            //왼쪽에서 오른쪽으로 100px 이상 터치
+
+            prevTrailer(); //이전 Trailer
+        } else if (trailerTouchStart - trailerTouchEnd >= 100) {
+            //오른쪽에서 왼쪽으로 100px 이상 터치
+
+            nextTrailer(); //다음 Trailer
+        }
+    }
 }
