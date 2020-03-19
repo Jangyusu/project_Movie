@@ -62,9 +62,6 @@ window.onload = function () { // 로드가 완료되면 실행
         trailerTouchEnd;
 
 
-
-
-
     document.querySelector('.loading_img').remove(); // 로딩이 완료된 이미지 태그 제거
     start(); //로딩이 완료되면 웹사이트 실행
 

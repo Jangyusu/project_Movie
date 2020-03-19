@@ -3589,7 +3589,7 @@ footer .sns a:hover {
     }
     section:nth-of-type(4) i {
         font-size: 2rem;
-        opacity: 0.3;
+        opacity: 1;
         transition: 1s;
     }
     section:nth-of-type(4) i:hover {
@@ -3800,7 +3800,7 @@ footer .sns a:hover {
     section:nth-of-type(6) .photos .photo {
         width: 70%;
         cursor: pointer;
-        opacity: .5;
+        opacity: .8;
         transition: .5s;
     }
     section:nth-of-type(6) .photos .photo:hover {
