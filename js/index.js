@@ -32,7 +32,6 @@ window.onload = function () { // 로드가 완료되면 실행
         trailer = document.querySelector(".trailer"),
         tarilerPrev = trailer.querySelector(".tariler_prev"),
         tarilerNext = trailer.querySelector(".tariler_next"),
-        videos = trailer.querySelector(".videos"),
         video = trailer.querySelectorAll(".video"),
         firstVideo = trailer.querySelector(".video"),
         trailerIndex = 0,
@@ -63,11 +62,6 @@ window.onload = function () { // 로드가 완료되면 실행
 
 
 
-
-
-
-
-
     document.querySelector('.loading_img').remove(); // 로딩이 완료된 이미지 태그 제거
     start(); //로딩이 완료되면 웹사이트 실행
 
@@ -83,12 +77,12 @@ window.onload = function () { // 로드가 완료되면 실행
 
     synopsisInd.forEach(synopsisInd => synopsisInd.addEventListener("click", synopsisIndicator)); //synopsis indicator 버튼
     menu[1].addEventListener("click", synopsisImg); //synopsis img 변경
-    mobileMenu[1].addEventListener("click", synopsisImg); //synopsis img 변경
+    mobileMenu[1].addEventListener("click", synopsisImg); //mobile synopsis img 변경
 
 
     castingCon.addEventListener("click", castingOnOff); //casting on/off 버튼
     menu[2].addEventListener("click", catingImg); //casting img 변경
-    mobileMenu[2].addEventListener("click", catingImg); //casting img 변경
+    mobileMenu[2].addEventListener("click", catingImg); //mobile casting img 변경
     castingInd.forEach(castingInd => castingInd.addEventListener("click", castingIndicator)); //Casting indicator 버튼
 
 
@@ -97,12 +91,12 @@ window.onload = function () { // 로드가 완료되면 실행
     }); //Trailer 첫화면
     mobileMenu[3].addEventListener("click", function () {
         firstVideo.classList.add("active");
-    }); //Trailer 첫화면
+    }); //mobile Trailer 첫화면
     tarilerPrev.addEventListener("click", prevTrailer); //Trailer prev 버튼
     tarilerNext.addEventListener("click", nextTrailer); //trailer next 버튼
 
     menu[4].addEventListener("click", ostStart) //ost 첫화면
-    mobileMenu[4].addEventListener("click", ostStart) //ost 첫화면
+    mobileMenu[4].addEventListener("click", ostStart) //mobile ost 첫화면
     for (var i = 0; i < music.length; i++) {
         playMusic[i].addEventListener("click", playPause); //음악 실행 및 일시정지 버튼
         stopMusic[i].addEventListener("click", stop); //음악 정지 버튼
