@@ -3794,6 +3794,9 @@ footer .sns a:hover {
         transition: 1s;
         overflow: scroll;
     }
+    section:nth-of-type(6) .photos::-webkit-scrollbar {
+        display: none;
+    }
     section:nth-of-type(6) .photos .photo {
         width: 70%;
         cursor: pointer;

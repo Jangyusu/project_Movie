@@ -56,9 +56,10 @@ window.onload = function () { // 로드가 완료되면 실행
         // footer
         footer = document.querySelector("footer"),
         playingMusic = footer.querySelector(".playing_music"),
-        playingMusicTitle = footer.querySelector(".playing_music_title");
-
-
+        playingMusicTitle = footer.querySelector(".playing_music_title"),
+        // touch
+        touchStart,
+        touchEnd;
 
 
 
@@ -103,6 +104,8 @@ window.onload = function () { // 로드가 완료되면 실행
     } //Ost 음악 재생 및 정지 버튼
     ostPrev.addEventListener("click", prevOst); //이전 ost버튼
     ostNext.addEventListener("click", nextOst); //다음 ost버튼
+    ost.addEventListener("touchstart", startTouch) // ost 터치가 시작했을 때
+    ost.addEventListener("touchend", endTouch) // ost 터치가 끝났을 때 이전곡 혹은 다음곡 보기
     playingMusic.addEventListener("click", musicInPlay); //음악 플레이어
 
 
@@ -419,4 +422,24 @@ window.onload = function () { // 로드가 완료되면 실행
     function hiddenPhoto() {
         photoView.classList.remove("active");
     }
+
+    function startTouch(e) {
+        touchStart = e.changedTouches[0].screenX; //터치가 시작했을 때 screenX값
+    } //터치가 시작했을 때
+
+    function endTouch(e) {
+        touchEnd = e.changedTouches[0].screenX; //터치가 끝났을 때 screenX값
+
+        console.log(touchStart - touchEnd);
+
+        if (touchStart - touchEnd <= -100) {
+            //왼쪽에서 오른쪽으로 100px 이상 터치
+
+            prevOst(); //이전곡
+        } else if (touchStart - touchEnd >= 100) {
+            //오른쪽에서 왼쪽으로 100px 이상 터치
+
+            nextOst(); //다음곡
+        }
+    } //터치가 끝났을 때
 }
