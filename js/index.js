@@ -169,7 +169,7 @@ window.onload = function () { // 로드가 완료되면 실행
             ostList[i].classList.remove("active");
         } //모든 ostList active클래스 제거
 
-        photoView.classList.remove("active");
+        photoView.classList.remove("active"); //gallery 안에 보고있던 사진 끄기
 
         trailerIndex = 0;
     } //메뉴 선택
@@ -192,7 +192,7 @@ window.onload = function () { // 로드가 완료되면 실행
             ostList[i].classList.remove("active");
         } //모든 ostList active클래스 제거
 
-        photoView.classList.remove("active");
+        photoView.classList.remove("active"); //gallery 안에 보고있던 사진 끄기
 
         trailerIndex = 0;
     }
@@ -408,6 +408,7 @@ window.onload = function () { // 로드가 완료되면 실행
             section[i].classList.remove("active");
         }
         section[4].classList.add("active");
+        ostList[ostIndex].classList.add("active"); // 현재 재생중인 ostList에 active클래스 추가
     }
 
     function visiblePhoto(e) {
