@@ -3212,7 +3212,7 @@ footer .sns a:hover {
         display: inline-block;
         position: absolute;
         left: 0;
-        transition: .5s;        
+        transition: .5s;
     }
     header .menu_m a span:nth-of-type(1) {
         top: 0;
