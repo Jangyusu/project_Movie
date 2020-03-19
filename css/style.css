@@ -3616,8 +3616,8 @@ footer .sns a:hover {
         left: 50%;
         top: -15%;
         transform: translateX(-50%);
-        font-size: 2rem;
-        letter-spacing: .18rem;
+        font-size: 1rem;
+        letter-spacing: .1rem;
     }
     section:nth-of-type(4) .videos .video iframe {
         width: 60vw;
