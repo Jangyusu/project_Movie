@@ -199,7 +199,7 @@ section:nth-of-type(1) p {
     font-size: 5rem;
     font-weight: 900;
     letter-spacing: 5rem;
-    margin: 40vh 0 0 0;
+    margin: 56vh 0 0 0;
     opacity: 0;
     transition: opacity 1s, letter-spacing 1s;
 }
@@ -926,7 +926,7 @@ footer .sns a:hover {
         font-size: 5rem;
         font-weight: 900;
         letter-spacing: 5rem;
-        margin: 56vh 0 6vh;
+        margin: 56vh 0 0 0;
         opacity: 0;
         transition: opacity 1s, letter-spacing 1s;
     }
@@ -1715,7 +1715,7 @@ footer .sns a:hover {
         font-size: 5rem;
         font-weight: 900;
         letter-spacing: 5rem;
-        margin: 56vh 0 6vh;
+        margin: 56vh 0 0 0;
         opacity: 0;
         transition: opacity 1s, letter-spacing 1s;
     }
@@ -2530,7 +2530,7 @@ footer .sns a:hover {
         font-size: 5rem;
         font-weight: 900;
         letter-spacing: 5rem;
-        margin: 56vh 0 6vh;
+        margin: 56vh 0 0 0;
         opacity: 0;
         transition: opacity 1s, letter-spacing 1s;
     }
