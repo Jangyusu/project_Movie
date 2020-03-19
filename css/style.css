@@ -3351,7 +3351,7 @@ footer .sns a:hover {
     section:nth-of-type(1) p {
         font-size: 3rem;
         font-weight: 900;
-        letter-spacing: 5rem;
+        letter-spacing: 1rem;
         margin: 50vh 0 0 0;
         opacity: 0;
         transition: opacity 1s, letter-spacing 1s;
@@ -3445,8 +3445,9 @@ footer .sns a:hover {
     }
 
     section:nth-of-type(3) > div {
+        width: 270px;
         display: flex;
-        margin: 30% 0 0 0;
+        margin: 25% auto 0;
         align-items: center;
     }
     section:nth-of-type(3) > div i {
@@ -3464,10 +3465,13 @@ footer .sns a:hover {
         opacity: 1;
     }
     section:nth-of-type(3) > div .casting_indicators {
-        width: 100%;
+        width: 300px;
         display: flex;
         justify-content: space-between;
-        overflow: hidden;
+        overflow: scroll;
+    }
+    section:nth-of-type(3) > div .casting_indicators::-webkit-scrollbar {
+        display: none;
     }
     section:nth-of-type(3) > div .casting_indicators .casting_indicator {
         transform: translateX(-1100%);
