@@ -47,8 +47,6 @@ window.onload = function () { // 로드가 완료되면 실행
         ostNext = ost.querySelectorAll(".ost_indicator i")[1],
         ostIndex = 0,
         startTime,
-        sec,
-        min,
         // gallery
         gallery = document.querySelector(".gallery"),
         photos = gallery.querySelectorAll(".photo"),
@@ -429,8 +427,6 @@ window.onload = function () { // 로드가 완료되면 실행
 
     function endTouch(e) {
         touchEnd = e.changedTouches[0].screenX; //터치가 끝났을 때 screenX값
-
-        console.log(touchStart - touchEnd);
 
         if (touchStart - touchEnd <= -100) {
             //왼쪽에서 오른쪽으로 100px 이상 터치
