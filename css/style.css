@@ -3535,25 +3535,25 @@ footer .sns a:hover {
         transition: 1s 3s;
     }
     section:nth-of-type(3) article:nth-of-type(1) {
-        transform: translateX(-40vw) translateY(-20vh)
+        transform: translateX(-40vw) translateY(-10vh)
     }
     section:nth-of-type(3) article:nth-of-type(2){
-        transform: translateX(-40vw) translateY(-20vh)
+        transform: translateX(-40vw) translateY(-10vh)
     }
     section:nth-of-type(3) article:nth-of-type(3){
-        transform: translateX(-40vw) translateY(-20vh)
+        transform: translateX(-40vw) translateY(-10vh)
     }
     section:nth-of-type(3) article:nth-of-type(4){
-        transform: translateX(-40vw) translateY(-20vh)
+        transform: translateX(-40vw) translateY(-10vh)
     }
     section:nth-of-type(3) article:nth-of-type(5){
-        transform: translateX(-40vw) translateY(-20vh)
+        transform: translateX(-40vw) translateY(-10vh)
     }
     section:nth-of-type(3) article:nth-of-type(6){
-        transform: translateX(-40vw) translateY(-20vh)
+        transform: translateX(-40vw) translateY(-10vh)
     }
     section:nth-of-type(3) article:nth-of-type(7){
-        transform: translateX(-40vw) translateY(-20vh)
+        transform: translateX(-40vw) translateY(-10vh)
     }
 
     /* Trailer */
@@ -3825,7 +3825,7 @@ footer .sns a:hover {
         width: 100%;
         position: fixed;
         left: 50%;
-        transform: translateX(-50%) translateY(100%);
+        transform: translateX(-48%) translateY(100%);
         display: flex;
         align-items: center;
         justify-self: center;
