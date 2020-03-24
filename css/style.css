@@ -2651,7 +2651,6 @@ footer .sns a:hover {
         display: flex;
         justify-content: space-between;
         overflow: hidden;
-        padding: 0 20px;
     }
     section:nth-of-type(3) > div .casting_indicators .casting_indicator {
         transform: translateX(-1100%);
