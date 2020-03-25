@@ -275,9 +275,9 @@ window.onload = function () {   //window 로드가 완료되면 실행
     function synopsisEndTouch(e) { //터치가 끝났을 때
         synopsisTouchEnd = e.changedTouches[0].screenX; //screenX값
 
-        if (synopsisTouchStart - synopsisTouchEnd <= -100) { //왼쪽에서 오른쪽으로 100px 이상 터치
+        if (synopsisTouchStart - synopsisTouchEnd <= -50) { //왼쪽에서 오른쪽으로 50px 이상 터치
             prevSynopsis(); //이전곡
-        } else if (synopsisTouchStart - synopsisTouchEnd >= 100) { //오른쪽에서 왼쪽으로 100px 이상 터치
+        } else if (synopsisTouchStart - synopsisTouchEnd >= 50) { //오른쪽에서 왼쪽으로 50px 이상 터치
             nextSynopsis(); //다음곡
         }
     }
@@ -554,9 +554,9 @@ window.onload = function () {   //window 로드가 완료되면 실행
     function ostEndTouch(e) { //터치가 끝났을 때
         ostTouchEnd = e.changedTouches[0].screenX; //screenX값
 
-        if (ostTouchStart - ostTouchEnd <= -100) { //왼쪽에서 오른쪽으로 100px 이상 터치
+        if (ostTouchStart - ostTouchEnd <= -50) { //왼쪽에서 오른쪽으로 50px 이상 터치
             prevOst(); //이전곡
-        } else if (ostTouchStart - ostTouchEnd >= 100) { //오른쪽에서 왼쪽으로 100px 이상 터치
+        } else if (ostTouchStart - ostTouchEnd >= 50) { //오른쪽에서 왼쪽으로 50px 이상 터치
             nextOst(); //다음곡
         }
     }
@@ -569,9 +569,9 @@ window.onload = function () {   //window 로드가 완료되면 실행
 
         trailerTouchEnd = e.changedTouches[0].screenX; //trailer 터치가 시작했을 때 screenX값
 
-        if (trailerTouchStart - trailerTouchEnd <= -100) { //왼쪽에서 오른쪽으로 100px 이상 터치
+        if (trailerTouchStart - trailerTouchEnd <= -50) { //왼쪽에서 오른쪽으로 50px 이상 터치
             prevTrailer(); //이전 Trailer
-        } else if (trailerTouchStart - trailerTouchEnd >= 100) { //오른쪽에서 왼쪽으로 100px 이상 터치
+        } else if (trailerTouchStart - trailerTouchEnd >= 50) { //오른쪽에서 왼쪽으로 50px 이상 터치
             nextTrailer(); //다음 Trailer
         }
     }
@@ -584,9 +584,9 @@ window.onload = function () {   //window 로드가 완료되면 실행
 
         photoViewTouchEnd = e.changedTouches[0].screenX; //photoView 터치가 시작했을 때 screenX값
 
-        if (photoViewTouchStart - photoViewTouchEnd <= -100) { //왼쪽에서 오른쪽으로 100px 이상 터치
+        if (photoViewTouchStart - photoViewTouchEnd <= -50) { //왼쪽에서 오른쪽으로 50px 이상 터치
             prevPhotoView(); //이전 photoView
-        } else if (photoViewTouchStart - photoViewTouchEnd >= 100) { //오른쪽에서 왼쪽으로 100px 이상 터치
+        } else if (photoViewTouchStart - photoViewTouchEnd >= 50) { //오른쪽에서 왼쪽으로 50px 이상 터치
             nextPhotoView(); //다음 photoView
         }
     }
