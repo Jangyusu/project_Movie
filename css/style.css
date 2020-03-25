@@ -1572,14 +1572,14 @@ footer .sns a:hover {
     }
     header .menu_m {
         display: block;
-        margin: 20px 0 0 20px;
+        margin: 0;
     }
     header .menu_m a {
-        cursor: pointer;
         width: 40px;
         height: 30px;
+        margin: 20px 0 0 20px;
         position: relative;
-        margin-bottom: 10px;
+        z-index: 2;
     }
     header .menu_m a span {
         width: 100%;
@@ -1616,11 +1616,15 @@ footer .sns a:hover {
         transform: translate(-50%, 50%) rotate(-135deg);
     }
     header .menu_m ul {
+        width: 100vw;
         cursor: pointer;
-        transform: translateY(-10px);
-        opacity: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translateY(-2%);
         visibility: hidden;
-        transition: 1s;
+        opacity: 0;
+        transition: .5s;
     }
     header .menu_m ul.active {
         transform: translateY(0);
@@ -2126,7 +2130,7 @@ footer .sns a:hover {
         display: none;
     }
     section:nth-of-type(5) .ost_indicator {
-        display: block;
+        display: none;
         position: absolute;
         left: 50%;
         top: 50%;
@@ -2387,14 +2391,13 @@ footer .sns a:hover {
     }
     header .menu_m {
         display: block;
-        margin: 20px 0 0 20px;
+        margin: 0;
     }
     header .menu_m a {
-        cursor: pointer;
         width: 40px;
         height: 30px;
+        margin: 20px 0 0 20px;
         position: relative;
-        margin-bottom: 10px;
         z-index: 2;
     }
     header .menu_m a span {
@@ -2432,15 +2435,18 @@ footer .sns a:hover {
         transform: translate(-50%, 50%) rotate(-135deg);
     }
     header .menu_m ul {
-        width: 90vw;
+        width: 100vw;
         cursor: pointer;
-        transform: translateY(-12%);
-        opacity: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translateY(-2%);
         visibility: hidden;
-        transition: 1s;
+        opacity: 0;
+        transition: .5s;
     }
     header .menu_m ul.active {
-        transform: translateY(-10%);
+        transform: translateY(0);
         opacity: 1;
         visibility: visible;
     }
@@ -2448,7 +2454,7 @@ footer .sns a:hover {
         width: 100%;
         background: #000;
         text-transform: uppercase;
-        line-height: 5rem;
+        line-height: 16.666666vh;
         text-align: center;
     }
 
@@ -2949,7 +2955,7 @@ footer .sns a:hover {
         display: none;
     }
     section:nth-of-type(5) .ost_indicator {
-        display: block;
+        display: none;
         position: absolute;
         left: 50%;
         top: 50%;
@@ -3212,14 +3218,13 @@ footer .sns a:hover {
         width: 100%;
         height: 100%;
         display: block;
-        margin: 20px 0 0 20px;
+        margin: 0;
     }
     header .menu_m a {
-        cursor: pointer;
         width: 40px;
         height: 30px;
+        margin: 20px 0 0 20px;
         position: relative;
-        margin-bottom: 10px;
         z-index: 2;
     }
     header .menu_m a span {
@@ -3257,15 +3262,18 @@ footer .sns a:hover {
         transform: translate(-50%, 50%) rotate(-135deg);
     }
     header .menu_m ul {
-        width: 90vw;
+        width: 100vw;
         cursor: pointer;
-        transform: translateY(-12%);
-        opacity: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translateY(-2%);
         visibility: hidden;
-        transition: 1s;
+        opacity: 0;
+        transition: .5s;
     }
     header .menu_m ul.active {
-        transform: translateY(-10%);
+        transform: translateY(0);
         opacity: 1;
         visibility: visible;
     }
@@ -3273,7 +3281,7 @@ footer .sns a:hover {
         width: 100%;
         background: #000;
         text-transform: uppercase;
-        line-height: 5rem;
+        line-height: 16.666666vh;
         text-align: center;
     }
 
@@ -3783,7 +3791,7 @@ footer .sns a:hover {
         display: none;
     }
     section:nth-of-type(5) .ost_indicator {
-        display: block;
+        display: none;
         position: absolute;
         left: 50%;
         top: 50%;
