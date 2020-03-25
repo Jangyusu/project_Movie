@@ -26,6 +26,7 @@ window.onload = function () {   //window 로드가 완료되면 실행
         synopsis = document.querySelector(".synopsis"),
         synopsisInd = synopsis.querySelectorAll(".synopsis_indicator"),
         synopsisList = synopsis.querySelectorAll("article"),
+        synopsisIndex = 0,
 
         //casting
         casting = document.querySelector(".casting"),
@@ -66,6 +67,8 @@ window.onload = function () {   //window 로드가 완료되면 실행
         playingMusicTitle = footer.querySelector(".playing_music_title"),
 
         //touch
+        synopsisTouchStart,
+        synopsisTouchEnd,
         ostTouchStart,
         ostTouchEnd,
         trailerTouchStart,
@@ -94,6 +97,8 @@ window.onload = function () {   //window 로드가 완료되면 실행
     for (var i = 0; i < synopsisInd.length; i++) {
         synopsisInd[i].addEventListener("click", synopsisIndicator); //synopsis indicator 버튼
     }
+    synopsis.addEventListener("touchstart", synopsisStartTouch) //synopsis 터치가 시작했을 때
+    synopsis.addEventListener("touchend", synopsisEndTouch) //synopsis 터치가 끝났을 때 이전곡 혹은 다음곡 보기
 
 
     castingCon.addEventListener("click", castingOnOff); //casting on/off 버튼
@@ -245,6 +250,8 @@ window.onload = function () {   //window 로드가 완료되면 실행
         synopsisList[pressedIndex].classList.add("active");
 
         synopsis.style = "background-image: url('img/Synopsis_0" + pressedIndex + ".jpg')";
+
+        synopsisIndex = pressedIndex;
     }
 
     function synopsisImg() { //Synopsis 페이지 구현
@@ -255,6 +262,54 @@ window.onload = function () {   //window 로드가 완료되면 실행
         }
         synopsisList[0].classList.add("active");
         synopsisInd[0].classList.add("active");
+    }
+
+    function synopsisStartTouch(e) { //터치가 시작했을 때
+        synopsisTouchStart = e.changedTouches[0].screenX; //screenX값
+    }
+
+    function synopsisEndTouch(e) { //터치가 끝났을 때
+        synopsisTouchEnd = e.changedTouches[0].screenX; //screenX값
+
+        if (synopsisTouchStart - synopsisTouchEnd <= -100) { //왼쪽에서 오른쪽으로 100px 이상 터치
+            prevSynopsis(); //이전곡
+        } else if (synopsisTouchStart - synopsisTouchEnd >= 100) { //오른쪽에서 왼쪽으로 100px 이상 터치
+            nextSynopsis(); //다음곡
+        }
+    }
+
+    function prevSynopsis() { //이전 synopsis
+        if (synopsisIndex == 0) { //synopsisIndex값을 0~2 사이에서 변경
+            synopsisIndex = synopsisList.length - 1;
+        } else {
+            synopsisIndex--;
+        }
+
+        for (var i = 0; i < synopsisList.length; i++) {
+            synopsisList[i].classList.remove("active"); //모든 synopsisList active클래스 제거
+            synopsisInd[i].classList.remove("active"); //모든 synopsisList active클래스 제거            
+        }
+
+        synopsisList[synopsisIndex].classList.add("active"); //이전 synopsisList에 active클래스 추가
+        synopsisInd[synopsisIndex].classList.add("active");
+        synopsis.style = "background-image: url('img/Synopsis_0" + synopsisIndex + ".jpg')";
+    }
+
+    function nextSynopsis() { //다음 synopsis
+        if (synopsisIndex == synopsisList.length - 1) { //synopsisIndex값을 0~2 사이에서 변경
+            synopsisIndex = 0
+        } else {
+            synopsisIndex++;
+        }
+
+        for (var i = 0; i < synopsisList.length; i++) { //모든 synopsisList active클래스 제거
+            synopsisList[i].classList.remove("active");
+            synopsisInd[i].classList.remove("active");
+        }
+
+        synopsisList[synopsisIndex].classList.add("active"); //다음 synopsisList에 active클래스 추가
+        synopsisInd[synopsisIndex].classList.add("active");
+        synopsis.style = "background-image: url('img/Synopsis_0" + synopsisIndex + ".jpg')";
     }
 
     function castingOnOff() { //casting on/off 버튼
@@ -425,7 +480,7 @@ window.onload = function () {   //window 로드가 완료되면 실행
 
     function prevOst() { //이전 ost
         if (ostIndex == 0) { //ostIndex값을 0~2 사이에서 변경
-            ostIndex = 2
+            ostIndex = ostList.length - 1;
         } else {
             ostIndex--;
         }
@@ -438,7 +493,7 @@ window.onload = function () {   //window 로드가 완료되면 실행
     }
 
     function nextOst() { //다음 ost
-        if (ostIndex == 2) { //ostIndex값을 0~2 사이에서 변경
+        if (ostIndex == ostList.length - 1) { //ostIndex값을 0~2 사이에서 변경
             ostIndex = 0
         } else {
             ostIndex++;
