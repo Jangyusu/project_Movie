@@ -60,6 +60,8 @@ window.onload = function () {   //window 로드가 완료되면 실행
         gallery = document.querySelector(".gallery"),
         photos = gallery.querySelectorAll(".photo"),
         photoView = gallery.querySelector(".photo_view"),
+        photoHand = gallery.querySelector(".photo_slide"),
+        photoViewIndex = 0,
 
         //footer
         footer = document.querySelector("footer"),
@@ -133,6 +135,8 @@ window.onload = function () {   //window 로드가 완료되면 실행
     for (var i = 0; i < photos.length; i++) {
         photos[i].addEventListener("click", visiblePhoto); //선택한 사진 보기
     }
+    photoView.addEventListener("touchstart", photoViewStartTouch) //photoView 터치가 시작했을 때
+    photoView.addEventListener("touchend", photoViewEndTouch) //photoView 터치가 끝났을 때 이전 혹은 다음사진 보기
     photoView.addEventListener("click", hiddenPhoto); //사진 닫기
 
 
@@ -217,8 +221,8 @@ window.onload = function () {   //window 로드가 완료되면 실행
         }
         section[pressedIndex].classList.add("active");
 
-        burgerMenu.classList.toggle("active");
-        mobileMenus.classList.toggle("active");
+        burgerMenu.classList.remove("active");
+        mobileMenus.classList.remove("active");
 
         for (var i = 0; i < synopsisList.length; i++) {
             synopsisList[i].classList.remove("active"); //모든 synopsisList active클래스 제거
@@ -533,10 +537,14 @@ window.onload = function () {   //window 로드가 완료되면 실행
     function visiblePhoto(e) {
         photoView.src = e.target.src;
         photoView.classList.add("active"); //보여줄 photo의 active클래스 추가
+
+        photoHand.classList.add("active"); //손가락 애니메이션 추가
+        photoViewIndex = getIndex(event.target);
     }
 
     function hiddenPhoto() {
         photoView.classList.remove("active"); //보고있던 photo의 active클래스 제거
+        photoHand.classList.remove("active"); //손가락 애니메이션 제거
     }
 
     function ostStartTouch(e) { //터치가 시작했을 때
@@ -567,4 +575,40 @@ window.onload = function () {   //window 로드가 완료되면 실행
             nextTrailer(); //다음 Trailer
         }
     }
+
+    function photoViewStartTouch(e) {
+        photoViewTouchStart = e.changedTouches[0].screenX; //photoView 터치가 시작했을 때 screenX값
+    }
+
+    function photoViewEndTouch(e) {
+
+        photoViewTouchEnd = e.changedTouches[0].screenX; //photoView 터치가 시작했을 때 screenX값
+
+        if (photoViewTouchStart - photoViewTouchEnd <= -100) { //왼쪽에서 오른쪽으로 100px 이상 터치
+            prevPhotoView(); //이전 photoView
+        } else if (photoViewTouchStart - photoViewTouchEnd >= 100) { //오른쪽에서 왼쪽으로 100px 이상 터치
+            nextPhotoView(); //다음 photoView
+        }
+    }
+
+    function prevPhotoView() { //이전 photoView
+        if (photoViewIndex == 0) {
+            photoViewIndex = 0
+        } else {
+            photoViewIndex--;
+        }
+
+        photoView.src = photos[photoViewIndex].src;
+    }
+
+    function nextPhotoView() { //다음 photoView
+        if (photoViewIndex == photos.length - 1) {
+            photoViewIndex = photos.length - 1;
+        } else {
+            photoViewIndex++;
+        }
+
+        photoView.src = photos[photoViewIndex].src;
+    }
 }
+

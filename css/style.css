@@ -637,6 +637,32 @@ section:nth-of-type(6) .photo_view.active {
     opacity: 1;
     visibility: visible;
 }
+.photo_slide {
+    width: 40px;
+    position: absolute;
+    left: 50%;
+    bottom: 20%;
+    animation: sideSlide 1s infinite ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+    transition: 1s;
+}
+.photo_slide.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+@keyframes sideSlide {
+    0% {
+        transform: translate(-70%);
+    }
+    50% {
+        transform: translate(-30%);
+    }
+    100% {
+        transform: translate(-70%);
+    }
+}
 
 
 /* footer */
@@ -1624,7 +1650,7 @@ footer .sns a:hover {
         transform: translateY(-2%);
         visibility: hidden;
         opacity: 0;
-        transition: .5s;
+        transition: 1s;
     }
     header .menu_m ul.active {
         transform: translateY(0);
@@ -2443,7 +2469,7 @@ footer .sns a:hover {
         transform: translateY(-2%);
         visibility: hidden;
         opacity: 0;
-        transition: .5s;
+        transition: 1s;
     }
     header .menu_m ul.active {
         transform: translateY(0);
@@ -3270,7 +3296,7 @@ footer .sns a:hover {
         transform: translateY(-2%);
         visibility: hidden;
         opacity: 0;
-        transition: .5s;
+        transition: 1s;
     }
     header .menu_m ul.active {
         transform: translateY(0);
@@ -3820,9 +3846,6 @@ footer .sns a:hover {
         transform: translateX(-50%) translateY(-50%);
         transition: 1s;
         overflow: scroll;
-    }
-    section:nth-of-type(6) .photos::-webkit-scrollbar {
-        display: none;
     }
     section:nth-of-type(6) .photos .photo {
         width: 70%;
