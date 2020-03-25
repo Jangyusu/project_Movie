@@ -421,12 +421,24 @@ section:nth-of-type(4)::before {
     opacity: .5;
     z-index: -1;
 }
-section:nth-of-type(4) i {
+.video_control {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.video_control i {
     font-size: 2rem;
     opacity: 0.3;
-    transition: 1s;
+    transition: opacity 1s, transform 1s;
 }
-section:nth-of-type(4) i:hover {
+.video_control i:first-of-type {
+    visibility: hidden;
+}
+.video_control i:hover {
     cursor: pointer;
     transform: scale(1.2);
     opacity: 1;
@@ -455,7 +467,7 @@ section:nth-of-type(4) .videos .video.active {
     transform: scale(1);
 }
 section:nth-of-type(4) .videos .video .video_title{
-    width: 100%;
+    width: max-content;
     position: absolute;
     left: 50%;
     top: -15%;
@@ -1151,7 +1163,7 @@ footer .sns a:hover {
     section:nth-of-type(4) i {
         font-size: 2rem;
         opacity: 0.3;
-        transition: 1s;
+        transition: opacity 1s, transform 1s;
     }
     section:nth-of-type(4) i:hover {
         cursor: pointer;
@@ -1182,7 +1194,7 @@ footer .sns a:hover {
         transform: scale(1);
     }
     section:nth-of-type(4) .videos .video .video_title{
-        width: 100%;
+        width: max-content;
         position: absolute;
         left: 50%;
         top: -15%;
@@ -1940,7 +1952,7 @@ footer .sns a:hover {
     section:nth-of-type(4) i {
         font-size: 2rem;
         opacity: 0.3;
-        transition: 1s;
+        transition: opacity 1s, transform 1s;
     }
     section:nth-of-type(4) i:hover {
         cursor: pointer;
@@ -1971,7 +1983,7 @@ footer .sns a:hover {
         transform: scale(1);
     }
     section:nth-of-type(4) .videos .video .video_title{
-        width: 100%;
+        width: max-content;
         position: absolute;
         left: 50%;
         top: -15%;
@@ -2763,7 +2775,7 @@ footer .sns a:hover {
     section:nth-of-type(4) i {
         font-size: 2rem;
         opacity: 0.3;
-        transition: 1s;
+        transition: opacity 1s, transform 1s;
     }
     section:nth-of-type(4) i:hover {
         cursor: pointer;
@@ -2794,12 +2806,12 @@ footer .sns a:hover {
         transform: scale(1);
     }
     section:nth-of-type(4) .videos .video .video_title{
-        width: 100%;
+        width: max-content;
         position: absolute;
         left: 50%;
         top: -15%;
         transform: translateX(-50%);
-        font-size: 1.6rem;
+        font-size: 1.375rem;
         letter-spacing: .18rem;
     }
     section:nth-of-type(4) .videos .video iframe {
@@ -3414,7 +3426,10 @@ footer .sns a:hover {
     }
 
     section:nth-of-type(2) article:nth-of-type(2) .line span {
-        width: 135px;
+        width: 270px;
+    }
+    section:nth-of-type(2) article:nth-of-type(2) .line span:last-of-type {
+        display: none;
     }
     section:nth-of-type(2) article p{
         width: 90%;
@@ -3455,7 +3470,7 @@ footer .sns a:hover {
     }
 
     section:nth-of-type(3) > div {
-        width: 270px;
+        width: 55%;
         display: flex;
         margin: 25% auto 0;
         align-items: center;
@@ -3475,7 +3490,7 @@ footer .sns a:hover {
         opacity: 1;
     }
     section:nth-of-type(3) > div .casting_indicators {
-        width: 300px;
+        width: 100%;
         display: flex;
         justify-content: space-between;
         overflow: scroll;
@@ -3594,11 +3609,11 @@ footer .sns a:hover {
     section:nth-of-type(4) i {
         font-size: 2rem;
         opacity: 1;
-        transition: 1s;
+        transition: opacity 1s, transform 1s;
     }
     section:nth-of-type(4) i:hover {
         cursor: pointer;
-        transform: scale(1.2);
+        transform: scale(1);
         opacity: 1;
     }
     section:nth-of-type(4) .videos {
@@ -3625,12 +3640,12 @@ footer .sns a:hover {
         transform: scale(1);
     }
     section:nth-of-type(4) .videos .video .video_title{
-        width: 100%;
+        width: max-content;
         position: absolute;
         left: 50%;
         top: -15%;
         transform: translateX(-50%);
-        font-size: 1.4rem;
+        font-size: 1.125rem;
         letter-spacing: .1rem;
     }
     section:nth-of-type(4) .videos .video iframe {

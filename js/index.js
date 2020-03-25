@@ -349,7 +349,13 @@ window.onload = function () {   //window 로드가 완료되면 실행
                 video[i].classList.remove("active"); //모든 video active클래스 제거
             }
             video[trailerIndex].classList.add("active"); //선택한 video active클래스 추가
+
+            if (trailerIndex == 0) {
+                tarilerPrev.style.visibility = "hidden";
+            }
         }
+
+        tarilerNext.style.visibility = "visible";
     } //Trailer prev 버튼
 
     function nextTrailer() {
@@ -360,7 +366,13 @@ window.onload = function () {   //window 로드가 완료되면 실행
                 video[i].classList.remove("active"); //모든 video active클래스 제거
             }
             video[trailerIndex].classList.add("active"); //선택한 video active클래스 추가
+
+            if (trailerIndex == video.length - 1) {
+                tarilerNext.style.visibility = "hidden";
+            }
         }
+
+        tarilerPrev.style.visibility = "visible";
     } //Trailer next 버튼
 
     function playPause(e) {
