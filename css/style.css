@@ -597,6 +597,15 @@ section:nth-of-type(5) ul li p .music_time::before {
 section:nth-of-type(5) ul li video {
     display: none;
 }
+section:nth-of-type(5) > span {
+    width: 33.333333%;
+    height: 3px;
+    background: #fff;
+    transform: translate(0);
+    position: absolute;
+    left: 0;
+    bottom: 25%;
+}
 section:nth-of-type(5) .ost_indicator {
     display: none;
 }

@@ -51,6 +51,7 @@ window.onload = function () {   //window 로드가 완료되면 실행
         musicControl = ost.querySelectorAll(".music_control"),
         playMusic = ost.querySelectorAll(".play_music"),
         stopMusic = ost.querySelectorAll(".stop_music"),
+        ostInd = ost.querySelector(".ost_line"),
         ostPrev = ost.querySelectorAll(".ost_indicator i")[0],
         ostNext = ost.querySelectorAll(".ost_indicator i")[1],
         ostIndex = 0,
