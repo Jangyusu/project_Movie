@@ -1,73 +1,70 @@
 window.onload = function () {   //window 로드가 완료되면 실행
 
-    //start
-    var startButton = document.querySelector(".start"),
-
-        //header
-        header = document.querySelector("header"),
+    //loading
+    var loading = document.querySelector(".load_image"),
+        loadingImags = document.querySelector(".loading_images"),
 
         //menu
-        menuButton = document.querySelector(".menu_button"),
-        menus = document.querySelector(".menus"),
-        menu = document.querySelectorAll(".menu"),
-        burgerMenu = document.querySelector(".burger_menu"),
-        mobileMenus = document.querySelector(".mobile_menus"),
-        mobileMenu = document.querySelectorAll(".mobile_menu"),
+        header = document.querySelector("header"),
+        pcMenubutton = header.querySelector(".header__menu_button"),
+        pcMenus = header.querySelector(".header__pc_menus"),
+        pcMenu = header.querySelectorAll(".header__pc_menus li"),
+        mobileMenuButton = header.querySelector(".header__mobile_button"),
+        mobileMenus = header.querySelector(".header__mobile_menus"),
+        mobileMenu = header.querySelectorAll(".header__mobile_menus li"),
         section = document.querySelectorAll("section"),
 
         //home
         home = document.querySelector(".home"),
-        homeTitle = home.querySelector(".home_title"),
-        director = home.querySelector(".director"),
-        directorTitle = director.querySelector(".director_title"),
-        directorName = director.querySelector(".director_name"),
+        homeTitle = home.querySelector(".home__title"),
+        director = home.querySelector(".home__director"),
+        directorTitle = director.querySelector(".home__director_title span"),
+        directorName = director.querySelector(".home__director_name span"),
 
         //synopsis
         synopsis = document.querySelector(".synopsis"),
-        synopsisInd = synopsis.querySelectorAll(".synopsis_indicator"),
         synopsisList = synopsis.querySelectorAll("article"),
+        synopsisInd = synopsis.querySelectorAll(".synopsis__indicators li"),
         synopsisIndex = 0,
 
         //casting
         casting = document.querySelector(".casting"),
         castingList = casting.querySelectorAll("article"),
-        castingCon = casting.querySelector(".casting_control"),
-        castingInds = casting.querySelector(".casting_indicators"),
-        castingInd = casting.querySelectorAll(".casting_indicator"),
+        castingCon = casting.querySelector(".casting__control"),
+        castingInds = casting.querySelector(".casting__indicators"),
+        castingInd = casting.querySelectorAll(".casting__indicators img"),
 
         //trailer
         trailer = document.querySelector(".trailer"),
-        tarilerPrev = trailer.querySelector(".tariler_prev"),
-        tarilerNext = trailer.querySelector(".tariler_next"),
-        video = trailer.querySelectorAll(".video"),
-        firstVideo = trailer.querySelector(".video"),
+        trailerPrev = trailer.querySelector(".trailer__prev"),
+        trailerNext = trailer.querySelector(".trailer__next"),
+        video = trailer.querySelectorAll(".trailer__video"),
+        firstTrailer = trailer.querySelector(".trailer__video"),
         trailerIndex = 0,
 
         //ost
         ost = document.querySelector(".ost"),
-        ostList = ost.querySelectorAll(".ost_list"),
-        music = ost.querySelectorAll(".music"),
-        musicControls = ost.querySelectorAll("i"),
-        musicControl = ost.querySelectorAll(".music_control"),
-        playMusic = ost.querySelectorAll(".play_music"),
-        stopMusic = ost.querySelectorAll(".stop_music"),
-        ostHand = ost.querySelector(".ost_slide"),
-        ostPrev = ost.querySelectorAll(".ost_indicator i")[0],
-        ostNext = ost.querySelectorAll(".ost_indicator i")[1],
+        ostList = ost.querySelectorAll(".ost__list"),
+        ostControls = ost.querySelectorAll(".ost__control"),
+        ostControl = ost.querySelectorAll(".ost__control i"),
+        ostPlay = ost.querySelectorAll(".ost__play"),
+        ostStop = ost.querySelectorAll(".ost__stop"),
+        ostMusic = ost.querySelectorAll(".ost__music"),
+        ostSlide = ost.querySelector(".ost__slide"),
         ostIndex = 0,
         startTime,
 
         //gallery
         gallery = document.querySelector(".gallery"),
-        photos = gallery.querySelectorAll(".photo"),
-        photoView = gallery.querySelector(".photo_view"),
-        photoHand = gallery.querySelector(".photo_slide"),
+        photos = gallery.querySelectorAll(".gallery__photos img"),
+        photoView = gallery.querySelector(".gallery__view"),
+        photoHand = gallery.querySelector(".gallery__slide"),
         photoViewIndex = 0,
 
         //footer
         footer = document.querySelector("footer"),
-        playingMusic = footer.querySelector(".playing_music"),
-        playingMusicTitle = footer.querySelector(".playing_music_title"),
+        musicPlayer = footer.querySelector(".footer__music_player"),
+        musicPlayerTitle = footer.querySelector(".footer__music_title"),
 
         //touch
         synopsisTouchStart,
@@ -80,22 +77,22 @@ window.onload = function () {   //window 로드가 완료되면 실행
 
 
 
-    document.querySelector('.loading_img').remove(); //로딩이 완료된 이미지 태그 제거
+    loadingImags.remove(); //로딩이 완료된 이미지 제거
     start(); //로딩이 완료되면 웹사이트 실행
 
-    menuButton.addEventListener("click", menuToggle); //메뉴 토글
-    for (var i = 0; i < menu.length; i++) {
-        menu[i].addEventListener("click", menuSelect); //메뉴 선택
+    pcMenubutton.addEventListener("click", menuToggle); //메뉴 토글
+    for (var i = 0; i < pcMenu.length; i++) {
+        pcMenu[i].addEventListener("click", menuSelect); //메뉴 선택
     }
 
 
-    burgerMenu.addEventListener("click", mobileMenuToggle) //mobile메뉴 토글
+    mobileMenuButton.addEventListener("click", mobileMenuToggle) //mobile메뉴 토글
     for (var i = 0; i < mobileMenu.length; i++) {
         mobileMenu[i].addEventListener("click", mobileMenuSelect); //mobile메뉴 선택
     }
 
 
-    menu[1].addEventListener("click", synopsisImg); //synopsis img 변경
+    pcMenu[1].addEventListener("click", synopsisImg); //synopsis img 변경
     mobileMenu[1].addEventListener("click", synopsisImg); //mobile synopsis img 변경
     for (var i = 0; i < synopsisInd.length; i++) {
         synopsisInd[i].addEventListener("click", synopsisIndicator); //synopsis indicator 버튼
@@ -105,32 +102,30 @@ window.onload = function () {   //window 로드가 완료되면 실행
 
 
     castingCon.addEventListener("click", castingOnOff); //casting on/off 버튼
-    menu[2].addEventListener("click", catingImg); //casting img 변경
+    pcMenu[2].addEventListener("click", catingImg); //casting img 변경
     mobileMenu[2].addEventListener("click", catingImg); //mobile casting img 변경
     for (var i = 0; i < castingInd.length; i++) {
         castingInd[i].addEventListener("click", castingIndicator); //Casting indicator 버튼
     }
 
 
-    menu[3].addEventListener("click", TarilerStart); //Trailer 첫화면
+    pcMenu[3].addEventListener("click", TarilerStart); //Trailer 첫화면
     mobileMenu[3].addEventListener("click", TarilerStart); //mobile Trailer 첫화면
-    tarilerPrev.addEventListener("click", prevTrailer); //Trailer prev 버튼
-    tarilerNext.addEventListener("click", nextTrailer); //trailer next 버튼
+    trailerPrev.addEventListener("click", prevTrailer); //Trailer prev 버튼
+    trailerNext.addEventListener("click", nextTrailer); //trailer next 버튼
     trailer.addEventListener("touchstart", trailerStartTouch, true); //trailer 터치가 시작했을 때
     trailer.addEventListener("touchend", trailerEndTouch); //trailer 터치가 끝났을 때 이전 혹은 다음 trailer 보기
 
 
-    menu[4].addEventListener("click", ostStart) //ost 첫화면
+    pcMenu[4].addEventListener("click", ostStart) //ost 첫화면
     mobileMenu[4].addEventListener("click", ostStart) //mobile ost 첫화면
-    for (var i = 0; i < music.length; i++) {
-        playMusic[i].addEventListener("click", playPause); //음악 실행 및 일시정지 버튼
-        stopMusic[i].addEventListener("click", stop); //음악 정지 버튼
+    for (var i = 0; i < ostMusic.length; i++) {
+        ostPlay[i].addEventListener("click", playPause); //음악 실행 및 일시정지 버튼
+        ostStop[i].addEventListener("click", stop); //음악 정지 버튼
     }
-    ostPrev.addEventListener("click", prevOst); //이전 ost버튼
-    ostNext.addEventListener("click", nextOst); //다음 ost버튼
     ost.addEventListener("touchstart", ostStartTouch) //ost 터치가 시작했을 때
     ost.addEventListener("touchend", ostEndTouch) //ost 터치가 끝났을 때 이전곡 혹은 다음곡 보기
-    playingMusic.addEventListener("click", musicInPlay); //음악 플레이어
+    musicPlayer.addEventListener("click", musicInPlay); //음악 플레이어
 
 
     for (var i = 0; i < photos.length; i++) {
@@ -157,7 +152,7 @@ window.onload = function () {   //window 로드가 완료되면 실행
     }
 
     function start() { //start
-        startButton.classList.add("active");
+        loading.classList.add("active");
 
         setTimeout(function () {
             header.classList.add("active");
@@ -173,15 +168,15 @@ window.onload = function () {   //window 로드가 완료되면 실행
     function menuToggle() { //메뉴 토글
         event.preventDefault();
 
-        menuButton.classList.toggle("active");
-        menus.classList.toggle("active");
-        menuButton.classList.remove("flash");
+        pcMenubutton.classList.toggle("active");
+        pcMenus.classList.toggle("active");
+        pcMenubutton.classList.remove("flash");
     }
 
     function mobileMenuToggle() { //berger메뉴 토글
         event.preventDefault();
 
-        burgerMenu.classList.toggle("active");
+        mobileMenuButton.classList.toggle("active");
         mobileMenus.classList.toggle("active");
     }
 
@@ -193,8 +188,8 @@ window.onload = function () {   //window 로드가 완료되면 실행
         }
         section[pressedIndex].classList.add("active");
 
-        menuButton.classList.toggle("active");
-        menus.classList.toggle("active");
+        pcMenubutton.classList.toggle("active");
+        pcMenus.classList.toggle("active");
 
         for (var i = 0; i < synopsisList.length; i++) {
             synopsisList[i].classList.remove("active"); //모든 synopsisList active클래스 제거
@@ -222,7 +217,7 @@ window.onload = function () {   //window 로드가 완료되면 실행
         }
         section[pressedIndex].classList.add("active");
 
-        burgerMenu.classList.remove("active");
+        mobileMenuButton.classList.remove("active");
         mobileMenus.classList.remove("active");
 
         for (var i = 0; i < synopsisList.length; i++) {
@@ -343,7 +338,7 @@ window.onload = function () {   //window 로드가 완료되면 실행
     }
 
     function TarilerStart() {
-        firstVideo.classList.add("active"); //Trailer 첫화면
+        firstTrailer.classList.add("active"); //Trailer 첫화면
     }
 
     function prevTrailer() {
@@ -356,11 +351,11 @@ window.onload = function () {   //window 로드가 완료되면 실행
             video[trailerIndex].classList.add("active"); //선택한 video active클래스 추가
 
             if (trailerIndex == 0) {
-                tarilerPrev.style.visibility = "hidden";
+                trailerPrev.style.visibility = "hidden";
             }
         }
 
-        tarilerNext.style.visibility = "visible";
+        trailerNext.style.visibility = "visible";
     } //Trailer prev 버튼
 
     function nextTrailer() {
@@ -373,11 +368,11 @@ window.onload = function () {   //window 로드가 완료되면 실행
             video[trailerIndex].classList.add("active"); //선택한 video active클래스 추가
 
             if (trailerIndex == video.length - 1) {
-                tarilerNext.style.visibility = "hidden";
+                trailerNext.style.visibility = "hidden";
             }
         }
 
-        tarilerPrev.style.visibility = "visible";
+        trailerPrev.style.visibility = "visible";
     } //Trailer next 버튼
 
     function playPause(e) {
@@ -385,24 +380,24 @@ window.onload = function () {   //window 로드가 완료되면 실행
             targetParent = target.parentNode.parentNode,
             targetCons = targetParent.querySelectorAll("i"),
             targetCon = target.parentNode,
-            targetMusic = targetParent.querySelectorAll("video"),
+            targetMusic = targetParent.querySelectorAll(".ost__music"),
             targetPlay = targetParent.querySelector("i"),
-            targetTitle = targetParent.querySelector("p"),
-            musicTimeTxt = targetParent.querySelector(".music_time").textContent,
-            timeText = targetParent.querySelector(".time").textContent,
-            sec = targetParent.querySelector(".sec"),
+            targetTitle = targetParent.querySelector(".ost__title"),
+            ostLengthTime = targetParent.querySelector(".ost__length_time").textContent,
+            ostPlayTime = targetParent.querySelector(".ost__play_time").textContent,
+            sec = targetParent.querySelector(".ost__sec"),
             secText = sec.textContent,
-            min = targetParent.querySelector(".min"),
+            min = targetParent.querySelector(".ost__min"),
             minText = min.textContent;
 
         if (target.classList.contains("fa-play")) {
 
             //재생 버튼
-            for (var i = 0; i < music.length; i++) { //모든 노래 멈춤
-                playMusic[i].classList.replace("fa-pause", "fa-play"); //모든 ost 아이콘 초기화
-                music[i].pause(); //모든 ost 멈춤
+            for (var i = 0; i < ostMusic.length; i++) { //모든 노래 멈춤
+                ostPlay[i].classList.replace("fa-pause", "fa-play"); //모든 ost 아이콘 초기화
+                ostMusic[i].pause(); //모든 ost 멈춤
 
-                musicControl[i].classList.remove("active"); //bounce 정지
+                ostControls[i].classList.remove("active"); //bounce 정지
             }
 
             target.classList.replace("fa-play", "fa-pause"); //선택한 노래 아이콘 변경
@@ -422,7 +417,7 @@ window.onload = function () {   //window 로드가 완료되면 실행
                     sec.innerHTML = ++secText;
                 }
 
-                if (timeText.slice(0, 5) == musicTimeTxt) { //재생 중인 음악이 끝났을 때
+                if (ostPlayTime.slice(0, 5) == ostLengthTime) { //재생 중인 음악이 끝났을 때
                     clearInterval(startTime); //재생 중인 음악 시간 체크 멈춤
 
                     min.innerHTML = "00"; //재생 중인 음악 시간분 초기화
@@ -432,21 +427,21 @@ window.onload = function () {   //window 로드가 완료되면 실행
                     for (var i = 0; i < 2; i++) {
                         targetCons[i].classList.remove("active"); //재생 아이콘 초기화
                     }
-                    for (var i = 0; i < musicControl.length; i++) {
-                        musicControl[i].classList.remove("active"); //bounce 정지
+                    for (var i = 0; i < ostControls.length; i++) {
+                        ostControls[i].classList.remove("active"); //bounce 정지
                     }
                 }
             }, 1000);
 
-            for (var i = 0; i < musicControls.length; i++) {
-                musicControls[i].classList.remove("active"); //모든 재생 아이콘 초기화
+            for (var i = 0; i < ostControl.length; i++) {
+                ostControl[i].classList.remove("active"); //모든 재생 아이콘 초기화
             }
             for (var i = 0; i < 2; i++) {
                 targetCons[i].classList.add("active"); //선택한 ost 아이콘 변경
             }
 
-            playingMusicTitle.textContent = targetTitle.textContent; //노래 재생시 음악플레이어 타이틀 변경
-            playingMusic.classList.add("active"); //노래 재생시 헤드폰 출현
+            musicPlayerTitle.textContent = targetTitle.textContent; //노래 재생시 음악플레이어 타이틀 변경
+            musicPlayer.classList.add("active"); //노래 재생시 헤드폰 출현
         } else {
 
             //일시정지 버튼
@@ -457,11 +452,11 @@ window.onload = function () {   //window 로드가 완료되면 실행
             for (var i = 0; i < 2; i++) {
                 targetCons[i].classList.remove("active"); //재생 아이콘 초기화
             }
-            for (var i = 0; i < musicControl.length; i++) {
-                musicControl[i].classList.remove("active"); //bounce 정지
+            for (var i = 0; i < ostControls.length; i++) {
+                ostControls[i].classList.remove("active"); //bounce 정지
             }
 
-            playingMusic.classList.remove("active"); //노래 정지시 헤드폰 숨김
+            musicPlayer.classList.remove("active"); //노래 정지시 헤드폰 숨김
         }
     } //Ost 시작 및 일시정지 버튼
 
@@ -470,9 +465,9 @@ window.onload = function () {   //window 로드가 완료되면 실행
             targetParent = target.parentNode.parentNode,
             targetPreSibling = target.previousSibling.previousSibling,
             targetCons = targetParent.querySelectorAll("i"),
-            targetMusic = targetParent.querySelector("video"),
-            targetMin = targetParent.querySelector(".min"),
-            targetSec = targetParent.querySelector(".sec");
+            targetMusic = targetParent.querySelector(".ost__music"),
+            targetMin = targetParent.querySelector(".ost__min"),
+            targetSec = targetParent.querySelector(".ost__sec");
 
         targetMusic.load(); //선택한 노래 정지
         targetPreSibling.classList.replace("fa-pause", "fa-play"); //선택한 노래 아이콘 변경
@@ -484,15 +479,15 @@ window.onload = function () {   //window 로드가 완료되면 실행
             targetCons[i].classList.remove("active"); //재생 아이콘 초기화
         }
 
-        for (var i = 0; i < musicControl.length; i++) {
-            musicControl[i].classList.remove("active"); //bounce 정지
+        for (var i = 0; i < ostControls.length; i++) {
+            ostControls[i].classList.remove("active"); //bounce 정지
         }
 
         clearInterval(startTime); //선택한 노래 정지
         sec = 1; //선택한 노래 시간 초기화
         min = 1; //선택한 노래 시간 초기화
 
-        playingMusic.classList.remove("active"); //노래 정지시 헤드폰 숨김
+        musicPlayer.classList.remove("active"); //노래 정지시 헤드폰 숨김
     }
 
     function prevOst() { //이전 ost
@@ -525,7 +520,7 @@ window.onload = function () {   //window 로드가 완료되면 실행
 
     function ostStart() { //모바일 ost메뉴 선택
         ostList[0].classList.add("active"); //첫번째 ost에 active클래스 추가
-        ostHand.classList.add("active"); //슬라이드 이미지 재생
+        ostSlide.classList.add("active"); //슬라이드 이미지 재생
     }
 
     function musicInPlay() {
@@ -562,7 +557,7 @@ window.onload = function () {   //window 로드가 완료되면 실행
             nextOst(); //다음곡
         }
 
-        ostHand.classList.remove("active"); //손가락 애니메이션 제거
+        ostSlide.classList.remove("active"); //손가락 애니메이션 제거
     }
 
     function trailerStartTouch(e) {

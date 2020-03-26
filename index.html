@@ -13,53 +13,55 @@
 </head>
 
 <body>
-    <img src="img/burger.png" alt="bat" class="start" />
+    <img src="img/burger.png" alt="bat" class="load_image" />
+
     <header>
-        <a href="index.html"><img src="img/logo.png" alt="Warner Bros" /></a>
-        <a href="#" class="menu_button flash"><img src="img/burger.png" alt="burger" /></a>
-        <ul class="menus">
-            <li class="menu">Home</li>
-            <li class="menu">Synopsis</li>
-            <li class="menu">Casting</li>
-            <li class="menu">Trailer</li>
-            <li class="menu">Ost</li>
-            <li class="menu">Gallery</li>
+        <a href="index.html" class="header__logo"><img src="img/logo.png" alt="Warner Bros" /></a>
+        <button type="button" class="header__menu_button flash"><img src="img/burger.png" alt="bat"></button>
+        <ul class="header__pc_menus">
+            <li>Home</li>
+            <li>Synopsis</li>
+            <li>Casting</li>
+            <li>Trailer</li>
+            <li>Ost</li>
+            <li>Gallery</li>
         </ul>
-        <div class="menu_m">
-            <a href="#" class="burger_menu">
+        <div class="header__mobile">
+            <button type="button" class="header__mobile_button">
                 <span></span>
                 <span></span>
                 <span></span>
-            </a>
-            <ul class="mobile_menus">
-                <li class="mobile_menu">Home</li>
-                <li class="mobile_menu">Synopsis</li>
-                <li class="mobile_menu">Casting</li>
-                <li class="mobile_menu">Trailer</li>
-                <li class="mobile_menu">Ost</li>
-                <li class="mobile_menu">Gallery</li>
+            </button>
+            <ul class="header__mobile_menus">
+                <li>Home</li>
+                <li>Synopsis</li>
+                <li>Casting</li>
+                <li>Trailer</li>
+                <li>Ost</li>
+                <li>Gallery</li>
             </ul>
         </div>
     </header>
+
     <section class="home">
-        <h1>Home</h1>
-        <div class="director">
-            <div><span class="director_title">Director</span></div>
-            <span></span>
-            <div><span class="director_name">Christopher Nolan</span></div>
+        <h2>Home</h2>
+        <div class="home__director">
+            <div class="home__director_title"><span>Director</span></div>
+            <span class="home__director_line"></span>
+            <div class="home__director_name director_name"><span>Christopher Nolan</span></div>
         </div>
-        <p class="home_title">The Dark Knight</p>
+        <p class="home__title">The Dark Knight</p>
     </section>
+
     <section class="synopsis">
         <h2>Synopsis</h2>
-        <article>
-            <h3>Chapter1</h3>
-            <strong>Chapter1</strong>
+        <article class="synopsis__chapters synopsis__chapters1">
+            <h3 class="synopsis__chapter__title">Chapter1</h3>
             <div class="line">
-                <img src="img/bat.png" alt="bat_line" />
+                <img src="img/bat.png" alt="bat" />
                 <span></span>
             </div>
-            <p>
+            <p class="synopsis__chapters__text synopsis__chapter1__text">
                 A gang of criminals rob a Gotham City mob bank, murdering each other for a higher share of the money
                 until only the Joker remains, who escapes with the money. Batman, District Attorney Harvey Dent and
                 Lieutenant James Gordon form an alliance to rid Gotham City of organized crime. Bruce Wayne believes
@@ -67,15 +69,14 @@
                 Dawes – even though she and Dent are dating.
             </p>
         </article>
-        <article>
-            <h3>Chapter2</h3>
-            <strong>Chapter2</strong>
-            <div class="line">
+        <article class="synopsis__chapters synopsis__chapters2">
+            <h3 class="synopsis__chapter__title">Chapter2</h3>
+            <div class="synopsis__chapters2__lines line">
                 <span></span>
-                <img src="img/bat.png" alt="bat_line" />
+                <img src="img/bat.png" alt="bat" />
                 <span></span>
             </div>
-            <p>
+            <p class="synopsis__chapters__text synopsis__chapter2__text">
                 Mob bosses Sal Maroni, Gambol, and the Chechen hold a video conference with their corrupt accountant,
                 Lau, who has taken their funds for safekeeping and fled to Hong Kong. The Joker interrupts the meeting
                 to warn them that since Batman is unhindered by the law, he would find Lau, who would give up the mob's
@@ -84,14 +85,13 @@
                 finds and kills Gambol, taking over his gang. The mob decides to take the Joker up on his offer.
             </p>
         </article>
-        <article>
-            <h3>Chapter3</h3>
-            <strong>Chapter3</strong>
+        <article class="synopsis__chapters synopsis__chapters3">
+            <h3 class="synopsis__chapter__title">Chapter3</h3>
             <div class="line">
                 <span></span>
-                <img src="img/bat.png" alt="bat_line" />
+                <img src="img/bat.png" alt="bat" />
             </div>
-            <p>
+            <p class="synopsis__chapters__text synopsis__chapter3__text">
                 A gang of criminals rob a Gotham City mob bank, murdering each other for a higher share of the money
                 until only the Joker remains, who escapes with the money. Batman, District Attorney Harvey Dent and
                 Lieutenant James Gordon form an alliance to rid Gotham City of organized crime. Bruce Wayne believes
@@ -99,232 +99,236 @@
                 Dawes – even though she and Dent are dating.
             </p>
         </article>
-        <ul class="synopsis_indicators">
-            <li class="synopsis_indicator active"></li>
-            <li class="synopsis_indicator"></li>
-            <li class="synopsis_indicator"></li>
+        <ul class="synopsis__indicators">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
         </ul>
     </section>
+
     <section class="casting">
         <h2>Casting</h2>
-        <div>
-            <i class="fas fa-chevron-right casting_control"></i>
-            <div class="casting_indicators active">
-                <img src="img/Cast_00.png" alt="Cast" class="casting_indicator" />
-                <img src="img/Cast_01.png" alt="Cast" class="casting_indicator" />
-                <img src="img/Cast_02.png" alt="Cast" class="casting_indicator" />
-                <img src="img/Cast_03.png" alt="Cast" class="casting_indicator" />
-                <img src="img/Cast_04.png" alt="Cast" class="casting_indicator" />
-                <img src="img/Cast_05.png" alt="Cast" class="casting_indicator" />
-                <img src="img/Cast_06.png" alt="Cast" class="casting_indicator" />
+        <div class="casting__control">
+            <button type="button" class="casting__trigger"><i class="fas fa-chevron-right"></i></button>
+            <div class="casting__indicators active">
+                <img src="img/Cast_00.png" alt="Cast" />
+                <img src="img/Cast_01.png" alt="Cast" />
+                <img src="img/Cast_02.png" alt="Cast" />
+                <img src="img/Cast_03.png" alt="Cast" />
+                <img src="img/Cast_04.png" alt="Cast" />
+                <img src="img/Cast_05.png" alt="Cast" />
+                <img src="img/Cast_06.png" alt="Cast" />
             </div>
         </div>
-        <article>
+        <article class="casting__Sequence1">
             <h3>Christian Bale as Bruce Wayne / Batman</h3>
-            <strong>Christian Bale</strong>
-            <small>as Bruce Wayne / Batman</small>
-            <div class="line">
+            <strong class="casting__name">Christian Bale</strong>
+            <small class="casting__cast">as Bruce Wayne / Batman</small>
+            <div class="casting__line line">
                 <span></span>
             </div>
-            <p>
+            <p class="casting__text">
                 A billionaire socialite who, after witnessing his parents' death in a mugging at age 8, travels the
                 world for seven years before returning home to operate as a bat-masked vigilante hailed as Gotham City's
                 "Dark Knight", using fear against the city's criminal underworld at night.
             </p>
         </article>
-        <article>
+        <article class="casting__Sequence2">
             <h3>Heath Ledger as The Joker</h3>
-            <strong>Heath Ledger</strong>
-            <small>as The Joker</small>
-            <div class="line">
+            <strong class="casting__name">Heath Ledger</strong>
+            <small class="casting__cast">as The Joker</small>
+            <div class="casting__line line">
                 <span></span>
             </div>
-            <p>
+            <p class="casting__text">
                 A psychopathic illegalist mastermind portraying himself as an "agent of chaos", who rises from the
                 criminal underworld by thrusting Gotham into anarchy and drawing Batman ever closer to crossing the fine
                 line between heroism and vigilantism.
             </p>
         </article>
-        <article>
+        <article class="casting__Sequence3">
             <h3>Gary Oldman as James Gordon</h3>
-            <strong>Gary Oldman</strong>
-            <small>as James Gordon</small>
-            <div class="line">
+            <strong class="casting__name">Gary Oldman</strong>
+            <small class="casting__cast">as James Gordon</small>
+            <div class="casting__line line">
                 <span></span>
             </div>
-            <p>
+            <p class="casting__text">
                 A lieutenant in the Gotham City Police Department and one of the city's few honest police officers, who
                 forms a tenuous, unofficial alliance with Batman and Dent and is given the position of Police
                 Commissioner by the city's mayor following the recent commissioner's assassination.
             </p>
         </article>
-        <article>
+        <article class="casting__Sequence4">
             <h3>Aaron Eckhart as Harvey Dent</h3>
-            <strong>Aaron Eckhart</strong>
-            <small>Harvey Dent</small>
-            <div class="line">
+            <strong class="casting__name">Aaron Eckhart</strong>
+            <small class="casting__cast">Harvey Dent</small>
+            <div class="casting__line line">
                 <span></span>
             </div>
-            <p>
+            <p class="casting__text">
                 The district attorney hailed as Gotham's 'White Knight', whose campaign against the criminal underworld
                 leaves half of his face disfigured, turning him into a murderer with a split-personality bent on
                 revenge. Nolan and David S.
             </p>
         </article>
-        <article>
+        <article class="casting__Sequence5">
             <h3>Anne Hathaway as Selina Kyle / Catwoman</h3>
-            <strong>Anne Hathaway</strong>
-            <small>as Selina Kyle / Catwoman</small>
-            <div class="line">
+            <strong class="casting__name">Anne Hathaway</strong>
+            <small class="casting__cast">as Selina Kyle / Catwoman</small>
+            <div class="casting__line line">
                 <span></span>
             </div>
-            <p>
+            <p class="casting__text">
                 A professional cat burglar, grifter, and femme fatale who establishes a playful, teasing relationship
                 with Wayne that 'takes some of the somberness away from his character', and pursues a "clean slate" when
                 she crosses paths with
                 both Wayne and Batman.
             </p>
         </article>
-        <article>
+        <article class="casting__Sequence6">
             <h3>Michael Caine as Alfred Pennyworth</h3>
-            <strong>Michael Caine</strong>
-            <small>as Alfred Pennyworth</small>
-            <div class="line">
+            <strong class="casting__name">Michael Caine</strong>
+            <small class="casting__cast">as Alfred Pennyworth</small>
+            <div class="casting__line line">
                 <span></span>
             </div>
-            <p>
+            <p class="casting__text">
                 Bruce's trusted butler and confidant, who supplies useful advice to Bruce and likeness as a father
                 figure, leading him to be labeled "Batman's batman".
             </p>
         </article>
-        <article>
+        <article class="casting__Sequence7">
             <h3>Morgan Freeman as Lucius Fox</h3>
-            <strong>Morgan Freeman</strong>
-            <small>as Lucius Fox</small>
-            <div class="line">
+            <strong class="casting__name">Morgan Freeman</strong>
+            <small class="casting__cast">as Lucius Fox</small>
+            <div class="casting__line line">
                 <span></span>
             </div>
-            <p>
+            <p class="casting__text">
                 The CEO and later Executive Vice President of Wayne Enterprises, who runs the company on Wayne's behalf
                 and serves as his armorer for the Batsuit, providing him with high-tech equipment and discreetly
                 developing cutting-edge technology and weaponry, even as Wayne Enterprises starts losing money.
             </p>
         </article>
     </section>
+
     <section class="trailer">
         <h2>Trailer</h2>
-        <div class="video_control">
-            <i class="fas fa-chevron-left tariler_prev"></i>
-            <i class="fas fa-chevron-right tariler_next"></i>
+        <div class="trailer__control">
+            <i class="fas fa-chevron-left trailer__prev"></i>
+            <i class="fas fa-chevron-right trailer__next"></i>
         </div>
-        <div class="videos">
-            <div class="video">
-                <p class="video_title">Batman Begins - Official Trailer</p>
+        <div class="trailer__videos">
+            <div class="trailer__video">
+                <p class="trailer__video_title">Batman Begins - Official Trailer</p>
                 <iframe src="https://www.youtube.com/embed/ceGXspGc2_4"
                     allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <div class="video">
-                <p class="video_title">The Dark Knight - Official Trailer</p>
+            <div class="trailer__video">
+                <p class="trailer__video_title">The Dark Knight - Official Trailer</p>
                 <iframe src="https://www.youtube.com/embed/5d8mLUKCZEk"
                     allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <div class="video">
-                <p class="video_title">The Dark Knight Rises - Official Trailer</p>
+            <div class="trailer__video">
+                <p class="trailer__video_title">The Dark Knight Rises - Official Trailer</p>
                 <iframe src="https://www.youtube.com/embed/z5Humz3ONgk"
                     allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <div class="video">
-                <p class="video_title">The Dark Knight Rises - Official Trailer #2</p>
+            <div class="trailer__video">
+                <p class="trailer__video_title">The Dark Knight Rises - Official Trailer #2</p>
                 <iframe src="https://www.youtube.com/embed/7gFwvozMHR4"
                     allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <div class="video">
-                <p class="video_title">The Dark Knight Rises - Official Trailer #3</p>
+            <div class="trailer__video">
+                <p class="trailer__video_title">The Dark Knight Rises - Official Trailer #3</p>
                 <iframe src="https://www.youtube.com/embed/g8evyE9TuYk"
                     allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <div class="video">
-                <p class="video_title">The Dark Knight Rises - Official Trailer #4</p>
+            <div class="trailer__video">
+                <p class="trailer__video_title">The Dark Knight Rises - Official Trailer #4</p>
                 <iframe src="https://www.youtube.com/embed/J9DlV9qwtF0"
                     allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </section>
+
     <section class="ost">
         <h2>Ost</h2>
-        <ul>
-            <li class="ost_list">
-                <div class="music_control">
-                    <i class="fas fa-play play_music"></i>
-                    <i class="fas fa-stop stop_music"></i>
+        <ul class="ost__lists">
+            <li class="ost__list">
+                <div class="ost__control ost__control1">
+                    <i class="fas fa-play ost__play"></i>
+                    <i class="fas fa-stop ost__stop"></i>
                 </div>
-                <p class="music_title">Batman Begins OST</p>
-                <p class="time"><span class="min">00</span>:<span class="sec">00</span><span
-                        class="music_time">09:00</span></p>
-                <video playsinline class="music">
+                <p class="ost__title">Batman Begins OST</p>
+                <p class="ost__play_time"><span class="ost__min ost__time">00</span>:<span
+                        class="ost__sec ost__time">00</span><span class="ost__length_time ost__time">09:00</span></p>
+                <video playsinline class="ost__music">
                     <source src="music/Batman_Begins_Theme.mp4" type="video/mp4" />
                 </video>
             </li>
-            <li class="ost_list">
-                <div class="music_control">
-                    <i class="fas fa-play play_music"></i>
-                    <i class="fas fa-stop stop_music"></i>
+            <li class="ost__list">
+                <div class="ost__control ost__control2">
+                    <i class="fas fa-play ost__play"></i>
+                    <i class="fas fa-stop ost__stop"></i>
                 </div>
-                <p class="music_title">The Dark Knight OST</p>
-                <p class="time"><span class="min">00</span>:<span class="sec">00</span><span
-                        class="music_time">04:50</span></p>
-                <video playsinline class="music">
+                <p class="ost__title">The Dark Knight OST</p>
+                <p class="ost__play_time"><span class="ost__min ost__time">00</span>:<span
+                        class="ost__sec ost__time">00</span><span class="ost__length_time ost__time">04:50</span></p>
+                <video playsinline class="ost__music">
                     <source src="music/The_Dark_Knight_Theme.mp4" type="video/mp4" />
                 </video>
             </li>
-            <li class="ost_list">
-                <div class="music_control">
-                    <i class="fas fa-play play_music"></i>
-                    <i class="fas fa-stop stop_music"></i>
+            <li class="ost__list">
+                <div class="ost__control ost__control3">
+                    <i class="fas fa-play ost__play"></i>
+                    <i class="fas fa-stop ost__stop"></i>
                 </div>
-                <p class="music_title">The Dark Knight Rises OST</p>
-                <p class="time"><span class="min">00</span>:<span class="sec">00</span><span
-                        class="music_time">07:42</span></p>
-                <video playsinline class="music">
+                <p class="ost__title">The Dark Knight Rises OST</p>
+                <p class="ost__play_time"><span class="ost__min ost__time">00</span>:<span
+                        class="ost__sec ost__time">00</span><span class="ost__length_time ost__time">07:42</span></p>
+                <video playsinline class="ost__music">
                     <source src="music/The_Dark_Knight_Rises_Theme.mp4" type="video/mp4" />
                 </video>
             </li>
         </ul>
-        <img src="img/sideSlide.png" class="ost_slide" alt="slide">
+        <img src="img/sideSlide.png" class="ost__slide" alt="slide">
     </section>
+
     <section class="gallery">
         <h2>Gallery</h2>
-        <div class="photos">
-            <img src="img/Gallery_00.jpg" alt="photo" class="photo" />
-            <img src="img/Gallery_01.jpg" alt="photo" class="photo" />
-            <img src="img/Gallery_02.jpg" alt="photo" class="photo" />
-            <img src="img/Gallery_03.jpg" alt="photo" class="photo" />
-            <img src="img/Gallery_04.jpg" alt="photo" class="photo" />
-            <img src="img/Gallery_05.jpg" alt="photo" class="photo" />
-            <img src="img/Gallery_06.jpg" alt="photo" class="photo" />
-            <img src="img/Gallery_07.jpg" alt="photo" class="photo" />
-            <img src="img/Gallery_08.jpg" alt="photo" class="photo" />
-            <img src="img/Gallery_09.jpg" alt="photo" class="photo" />
-            <img src="img/Gallery_10.jpg" alt="photo" class="photo" />
-            <img src="img/Gallery_11.jpg" alt="photo" class="photo" />
+        <div class="gallery__photos">
+            <img src="img/Gallery_00.jpg" alt="photo" />
+            <img src="img/Gallery_01.jpg" alt="photo" />
+            <img src="img/Gallery_02.jpg" alt="photo" />
+            <img src="img/Gallery_03.jpg" alt="photo" />
+            <img src="img/Gallery_04.jpg" alt="photo" />
+            <img src="img/Gallery_05.jpg" alt="photo" />
+            <img src="img/Gallery_06.jpg" alt="photo" />
+            <img src="img/Gallery_07.jpg" alt="photo" />
+            <img src="img/Gallery_08.jpg" alt="photo" />
+            <img src="img/Gallery_09.jpg" alt="photo" />
+            <img src="img/Gallery_10.jpg" alt="photo" />
+            <img src="img/Gallery_11.jpg" alt="photo" />
         </div>
-        <img src="#" alt="photoView" class="photo_view" />
-        <img src="img/sideSlide.png" class="photo_slide" alt="slide">
+        <img src="#" alt="photoView" class="gallery__view" />
+        <img src="img/sideSlide.png" class="gallery__slide" alt="slide">
     </section>
 
     <footer>
-        <div class="playing_music">
-            <i class="fas fa-headphones"></i>
-            <p class="playing_music_title"></p>
+        <div class="footer__music_player">
+            <i class="fas fa-headphones footer__music_icon"></i>
+            <p class="footer__music_title"></p>
         </div>
-        <div class="sns">
+        <div class="footer__sns">
             <a href="#"><img src="img/001-facebook.png" alt="facebook" /></a>
             <a href="#"><img src="img/002-instagram.png" alt="instagram" /></a>
             <a href="#"><img src="img/003-twitter.png" alt="twitter" /></a>
         </div>
     </footer>
 
-    <div class="loading_img">
+    <div class="loading_images">
         <img src="img/Home.jpg" alt="#">
         <img src="img/Synopsis_00.jpg" alt="#">
         <img src="img/Synopsis_01.jpg" alt="#">
