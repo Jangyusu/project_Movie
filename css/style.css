@@ -291,16 +291,16 @@ section:nth-of-type(n).active {
     margin: 8% 0 0 12%;
     align-items: center;
 }
-.casting__control i {
+.casting__trigger i {
     font-size: 2rem;
     opacity: .5;
     transition: 1s;
 }
-.casting__control.active i {
+.casting__trigger.active i {
     transform: rotateY(180deg);
     opacity: 1;
 }
-.casting__control i:hover {
+.casting__trigger i:hover {
     cursor: pointer;
     opacity: 1;
 }
@@ -1056,16 +1056,16 @@ footer.active {
         margin: 16% 0 0 16%;
         align-items: center;
     }
-    .casting__control i {
+    .casting__trigger i {
         font-size: 2rem;
         opacity: .5;
         transition: 1s;
     }
-    .casting__control.active i {
+    .casting__trigger.active i {
         transform: rotateY(180deg);
         opacity: 1;
     }
-    .casting__control i:hover {
+    .casting__trigger i:hover {
         cursor: pointer;
         opacity: 1;
     }
@@ -1868,16 +1868,16 @@ footer.active {
         margin: 16% 0 0 16%;
         align-items: center;
     }
-    .casting__control i {
+    .casting__trigger i {
         font-size: 2rem;
         opacity: .5;
         transition: 1s;
     }
-    .casting__control.active i {
+    .casting__trigger.active i {
         transform: rotateY(180deg);
         opacity: 1;
     }
-    .casting__control i:hover {
+    .casting__trigger i:hover {
         cursor: pointer;
         opacity: 1;
     }
@@ -2705,17 +2705,17 @@ footer.active {
         margin: 20% 0 0 0;
         align-items: center;
     }
-    .casting__control i {
+    .casting__trigger i {
         font-size: 2rem;
         opacity: .5;
         transition: 1s;
         display: none;
     }
-    .casting__control.active i {
+    .casting__trigger.active i {
         transform: rotateY(180deg);
         opacity: 1;
     }
-    .casting__control i:hover {
+    .casting__trigger i:hover {
         cursor: pointer;
         opacity: 1;
     }
@@ -3538,17 +3538,17 @@ footer.active {
         margin: 25% auto 0;
         align-items: center;
     }
-    .casting__control i {
+    .casting__trigger i {
         font-size: 2rem;
         opacity: .5;
         transition: 1s;
         display: none;
     }
-    .casting__control.active i {
+    .casting__trigger.active i {
         transform: rotateY(180deg);
         opacity: 1;
     }
-    .casting__control i:hover {
+    .casting__trigger i:hover {
         cursor: pointer;
         opacity: 1;
     }

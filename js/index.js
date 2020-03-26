@@ -30,7 +30,7 @@ window.onload = function () {   //window 로드가 완료되면 실행
         //casting
         casting = document.querySelector(".casting"),
         castingList = casting.querySelectorAll("article"),
-        castingCon = casting.querySelector(".casting__control"),
+        castingCon = casting.querySelector(".casting__trigger"),
         castingInds = casting.querySelector(".casting__indicators"),
         castingInd = casting.querySelectorAll(".casting__indicators img"),
 
@@ -113,7 +113,7 @@ window.onload = function () {   //window 로드가 완료되면 실행
     mobileMenu[3].addEventListener("click", TarilerStart); //mobile Trailer 첫화면
     trailerPrev.addEventListener("click", prevTrailer); //Trailer prev 버튼
     trailerNext.addEventListener("click", nextTrailer); //trailer next 버튼
-    trailer.addEventListener("touchstart", trailerStartTouch, true); //trailer 터치가 시작했을 때
+    trailer.addEventListener("touchstart", trailerStartTouch); //trailer 터치가 시작했을 때
     trailer.addEventListener("touchend", trailerEndTouch); //trailer 터치가 끝났을 때 이전 혹은 다음 trailer 보기
 
 
@@ -323,6 +323,7 @@ window.onload = function () {   //window 로드가 완료되면 실행
         for (var i = 0; i < castingList.length; i++) {
             castingList[i].classList.remove("active"); //모든 castingList active클래스 제거
         }
+
         castingList[0].classList.add("active");
     }
 
@@ -334,6 +335,7 @@ window.onload = function () {   //window 로드가 완료되면 실행
         for (var i = 0; i < castingList.length; i++) {
             castingList[i].classList.remove("active"); //모든 castingList active클래스 제거
         }
+
         castingList[pressedIndex].classList.add("active");
     }
 
