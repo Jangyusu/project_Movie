@@ -51,7 +51,7 @@ window.onload = function () {   //window 로드가 완료되면 실행
         musicControl = ost.querySelectorAll(".music_control"),
         playMusic = ost.querySelectorAll(".play_music"),
         stopMusic = ost.querySelectorAll(".stop_music"),
-        ostInd = ost.querySelector(".ost_line"),
+        ostHand = ost.querySelector(".ost_slide"),
         ostPrev = ost.querySelectorAll(".ost_indicator i")[0],
         ostNext = ost.querySelectorAll(".ost_indicator i")[1],
         ostIndex = 0,
@@ -525,6 +525,7 @@ window.onload = function () {   //window 로드가 완료되면 실행
 
     function ostStart() { //모바일 ost메뉴 선택
         ostList[0].classList.add("active"); //첫번째 ost에 active클래스 추가
+        ostHand.classList.add("active"); //슬라이드 이미지 재생
     }
 
     function musicInPlay() {
@@ -560,6 +561,8 @@ window.onload = function () {   //window 로드가 완료되면 실행
         } else if (ostTouchStart - ostTouchEnd >= 50) { //오른쪽에서 왼쪽으로 50px 이상 터치
             nextOst(); //다음곡
         }
+
+        ostHand.classList.remove("active"); //손가락 애니메이션 제거
     }
 
     function trailerStartTouch(e) {

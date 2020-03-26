@@ -597,17 +597,19 @@ section:nth-of-type(5) ul li p .music_time::before {
 section:nth-of-type(5) ul li video {
     display: none;
 }
-section:nth-of-type(5) > span {
-    width: 33.333333%;
-    height: 3px;
-    background: #fff;
-    transform: translate(0);
+.ost_slide {
+    width: 40px;
     position: absolute;
-    left: 0;
-    bottom: 25%;
+    left: 50%;
+    bottom: 20%;
+    animation: sideSlide 1s infinite ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+    transition: 1s;
 }
-section:nth-of-type(5) .ost_indicator {
-    display: none;
+.ost_slide.active {
+    visibility: visible;
+    opacity: 1;
 }
 
 /* Gallery */
@@ -1360,9 +1362,6 @@ footer .sns a:hover {
     section:nth-of-type(5) ul li video {
         display: none;
     }
-    section:nth-of-type(5) .ost_indicator {
-        display: none;
-    }
 
     /* Gallery */
     section:nth-of-type(6) .photos {
@@ -1683,8 +1682,11 @@ footer .sns a:hover {
         visibility: visible;
     }
     header .menu_m ul li {
+        width: 100%;
+        background: #000;
         text-transform: uppercase;
-        line-height: 4rem;
+        line-height: 16.666666vh;
+        text-align: center;
     }
 
 
@@ -2179,23 +2181,6 @@ footer .sns a:hover {
     }
     section:nth-of-type(5) ul li video {
         display: none;
-    }
-    section:nth-of-type(5) .ost_indicator {
-        display: none;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translateX(-50%) translateY(-50%);
-    }
-    section:nth-of-type(5) .ost_indicator i {
-        font-size: 2rem;
-        cursor: pointer;
-    }
-    section:nth-of-type(5) .ost_indicator i:first-of-type {
-        transform: translateX(-850%) translateY(-50%);
-    }
-    section:nth-of-type(5) .ost_indicator i:last-of-type {
-        transform: translateX(850%) translateY(-50%);
     }
 
     /* Gallery */
@@ -3019,23 +3004,6 @@ footer .sns a:hover {
     }
     section:nth-of-type(5) ul li video {
         display: none;
-    }
-    section:nth-of-type(5) .ost_indicator {
-        display: none;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translateX(-50%) translateY(-50%);
-    }
-    section:nth-of-type(5) .ost_indicator i {
-        font-size: 2rem;
-        cursor: pointer;
-    }
-    section:nth-of-type(5) .ost_indicator i:first-of-type {
-        transform: translateX(-850%) translateY(-50%);
-    }
-    section:nth-of-type(5) .ost_indicator i:last-of-type {
-        transform: translateX(850%) translateY(-50%);
     }
 
     /* Gallery */
@@ -3870,23 +3838,6 @@ footer .sns a:hover {
     }
     section:nth-of-type(5) ul li video {
         display: none;
-    }
-    section:nth-of-type(5) .ost_indicator {
-        display: none;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translateX(-50%) translateY(-50%);
-    }
-    section:nth-of-type(5) .ost_indicator i {
-        font-size: 2rem;
-        cursor: pointer;
-    }
-    section:nth-of-type(5) .ost_indicator i:first-of-type {
-        transform: translateX(-750%) translateY(-50%);
-    }
-    section:nth-of-type(5) .ost_indicator i:last-of-type {
-        transform: translateX(750%) translateY(-50%);
     }
 
     /* Gallery */
