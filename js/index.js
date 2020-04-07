@@ -1,5 +1,11 @@
 window.onload = function () {   //window 로드가 완료되면 실행
 
+    // document.body.requestFullscreen();
+    // screen.orientation.lock("landscape");
+
+
+
+
     //loading
     var loading = document.querySelector(".load_image"),
         loadingImags = document.querySelector(".loading_images"),
