@@ -3,7 +3,8 @@ window.onload = function () {   //window 로드가 완료되면 실행
     // document.body.requestFullscreen();
     // screen.orientation.lock("landscape");
 
-
+    window.requestFullscreen();
+    screen.orientation.lock('portrait-primary');
 
 
     //loading
