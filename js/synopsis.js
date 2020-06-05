@@ -1,7 +1,7 @@
 synopsisInd.forEach(synopsisInd => synopsisInd.addEventListener("click", synopsisIndicator)); //synopsis indicator 버튼
 menu[1].addEventListener("click", synopsisImg); //synopsis img 변경
 
-function synopsisIndicator() {
+function synopsisIndicator() { //Synopsis indicator 버튼
     var pressedIndex = getIndex(event.target);
 
     for (var i = 0; i < synopsisInd.length; i++) {
@@ -13,7 +13,7 @@ function synopsisIndicator() {
     synopsisList[pressedIndex].classList.add("active");
 
     synopsis.style = "background-image: url('img/Synopsis_0" + pressedIndex + ".jpg')";
-} //Synopsis indicator 버튼
+}
 
 function synopsisImg() {
     synopsis.style = "background-image: url('img/Synopsis_00.jpg')";
